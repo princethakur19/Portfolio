@@ -1,10 +1,14 @@
 import "./Navbar.css";
+import logo from "../assets/logo.png";
 
 function Navbar() {
     return(
         <header className="header">
             <nav className="navbar">
-                <h1 className="logo">Prince</h1>
+
+                <div className="logo">
+                    <img src={logo} alt="Logo" />
+                </div>
 
                 <ul className="nav-links">
                     <li><a href="#">Home</a></li>

@@ -1,62 +1,58 @@
 import "./Hero.css";
-
-import {
-    FaGithub,
-    FaLinkedIn,
-    FaInstagram,
-} from "react-icons/fs";
+// import profile from "../assets/profile.png";
 
 function Hero() {
-    return (
-        <section className="hero">
-            <div className="hero-content">
+  return (
+    <section className="hero">
 
-                <p className="hero-subtitle">
-                    Hello, I'm
-                </p>
+      {/* Background Blur */}
+      <div className="blur blur-1"></div>
+      <div className="blur blur-2"></div>
 
-                <h1 className="hero-title">
-                    Prince Thakur
-                </h1>
+      {/* LEFT SIDE */}
+      <div className="hero-content">
 
-                <h2 className="hero-role">
-                    Fullstack Developer
-                </h2>
+        <p className="hero-subtitle">
+          Hello, I'm
+        </p>
 
-                <p className="hero-description">
-                    I create modern, responsive and user-friendly web application using React and mordern web technologies.
-                </p>
+        <h1 className="hero-title">
+          Prince <span>Thakur</span>
+        </h1>
 
-                <div className="hero-buttons">
-                    <button className="hire-btn">
-                        Hire Me
-                    </button>
+        <h2 className="hero-role">
+          Frontend Developer
+        </h2>
 
-                    <button className="project-btn">
-                        View Projects
-                    </button>
-                </div>
+        <p className="hero-description">
+          I build modern, responsive and visually
+          appealing web applications with clean UI
+          and smooth user experience.
+        </p>
 
-                <div className="hero-socials">
-                    <a href="#">
-                        <FaGithub />
-                    </a>
+        <div className="hero-buttons">
+          <button className="hire-btn">
+            Hire Me
+          </button>
 
-                    <a href="#">
-                        <FaLinkedIn />
-                    </a>
+          <button className="project-btn">
+            View Projects
+          </button>
+        </div>
 
-                    <a href="#">
-                        <FaInstagram />
-                    </a>
-                </div>
-            </div>
+      </div>
 
-            <div className="hero-image">
-             {/* <img src={#} alt="Profile" /> */}
-            </div>
-        </section>
-    );
+      {/* RIGHT SIDE */}
+      <div className="hero-image">
+
+        {/* <div className="image-card">
+          <img src={profile} alt="Profile" />
+        </div> */}
+
+      </div>
+
+    </section>
+  );
 }
 
 export default Hero;

@@ -1,6 +1,6 @@
 .hero {
   min-height: 100vh;
-  padding: 120px 70px 50px;
+  padding: 120px 80px;
 
   display: flex;
   justify-content: space-between;
@@ -8,6 +8,36 @@
 
   max-width: 1400px;
   margin: auto;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* BLUR EFFECTS */
+
+.blur {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+}
+
+.blur-1 {
+  width: 300px;
+  height: 300px;
+  background: #38bdf8;
+  top: 100px;
+  left: -100px;
+  opacity: 0.25;
+}
+
+.blur-2 {
+  width: 350px;
+  height: 350px;
+  background: #7c3aed;
+  bottom: 0;
+  right: 0;
+  opacity: 0.2;
 }
 
 /* LEFT SIDE */
@@ -19,26 +49,32 @@
 .hero-subtitle {
   color: #38bdf8;
   font-size: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-weight: 500;
 }
 
 .hero-title {
-  font-size: 75px;
-  font-weight: 700;
+  font-size: 85px;
   line-height: 1.1;
+  font-weight: 700;
+  color: white;
+}
+
+.hero-title span {
+  color: #38bdf8;
 }
 
 .hero-role {
-  font-size: 40px;
+  font-size: 42px;
+  margin-top: 15px;
   color: #cbd5e1;
-  margin-top: 10px;
 }
 
 .hero-description {
-  margin-top: 25px;
-  font-size: 18px;
-  line-height: 1.8;
+  margin-top: 30px;
   color: #94a3b8;
+  font-size: 18px;
+  line-height: 1.9;
   max-width: 550px;
 }
 
@@ -47,30 +83,34 @@
 .hero-buttons {
   display: flex;
   gap: 20px;
-  margin-top: 35px;
+  margin-top: 40px;
 }
 
 .hire-btn,
 .project-btn {
-  padding: 14px 30px;
-  border: none;
-  border-radius: 10px;
-
+  padding: 15px 32px;
+  border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
-
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .hire-btn {
-  background: #38bdf8;
+  background: linear-gradient(
+    135deg,
+    #38bdf8,
+    #0ea5e9
+  );
+
+  border: none;
   color: #0f172a;
+
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
 }
 
 .hire-btn:hover {
-  background: #0ea5e9;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .project-btn {
@@ -82,76 +122,99 @@
 .project-btn:hover {
   background: #38bdf8;
   color: #0f172a;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
-/* SOCIAL ICONS */
+/* RIGHT SIDE */
 
-.hero-socials {
+.hero-image {
   display: flex;
-  gap: 20px;
-  margin-top: 35px;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-socials a {
-  width: 50px;
-  height: 50px;
+.image-card {
+  width: 420px;
+  height: 500px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(20px);
+
+  border-radius: 30px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border: 1px solid #334155;
-  border-radius: 50%;
+  box-shadow:
+    0 0 40px rgba(56, 189, 248, 0.15);
 
-  color: white;
-  font-size: 22px;
-
-  transition: 0.3s ease;
+  position: relative;
 }
 
-.hero-socials a:hover {
-  background: #38bdf8;
-  color: #0f172a;
-  transform: translateY(-5px);
-}
+.image-card::before {
+  content: "";
 
-/* RIGHT SIDE */
+  position: absolute;
+  inset: 0;
 
-.hero-image img {
-  width: 420px;
   border-radius: 30px;
-  border: 4px solid #38bdf8;
+
+  padding: 2px;
+
+  background: linear-gradient(
+    135deg,
+    #38bdf8,
+    #7c3aed
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+}
+
+.image-card img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 /* RESPONSIVE */
 
 @media (max-width: 992px) {
+
   .hero {
     flex-direction: column-reverse;
     text-align: center;
-    gap: 50px;
+    gap: 70px;
+    padding-top: 150px;
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-role {
+    font-size: 32px;
   }
 
   .hero-description {
     margin: auto;
-    margin-top: 20px;
+    margin-top: 25px;
   }
 
-  .hero-buttons,
-  .hero-socials {
+  .hero-buttons {
     justify-content: center;
   }
 
-  .hero-title {
-    font-size: 55px;
-  }
-
-  .hero-role {
-    font-size: 30px;
-  }
-
-  .hero-image img {
+  .image-card {
     width: 320px;
+    height: 380px;
   }
 }

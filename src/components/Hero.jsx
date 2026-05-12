@@ -53,7 +53,7 @@ function Hero() {
             </div>
 
             <div className="hero-image">
-             <img src={#} alt="Profile" />
+             {/* <img src={#} alt="Profile" /> */}
             </div>
         </section>
     );

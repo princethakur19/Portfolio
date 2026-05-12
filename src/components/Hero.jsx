@@ -1,5 +1,5 @@
 import "./Hero.css";
-// import profile from "../assets/profile.png";
+import profile from "../assets/profile.jpeg";
 
 function Hero() {
   return (
@@ -45,9 +45,9 @@ function Hero() {
       {/* RIGHT SIDE */}
       <div className="hero-image">
 
-        {/* <div className="image-card">
+        <div className="image-card">
           <img src={profile} alt="Profile" />
-        </div> */}
+        </div>
 
       </div>
 

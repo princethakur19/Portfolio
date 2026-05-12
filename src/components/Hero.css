@@ -217,8 +217,18 @@
     justify-content: center;
   }
 
-  .image-card {
-    width: 320px;
-    height: 400px;
-  }
+  .image-card img {
+  height: 100%;
+  width: auto;
+
+  object-fit: contain;
+
+  transform: scale(1.15);
+
+  transition: 0.3s ease;
+
+  filter: drop-shadow(
+    0 0 30px rgba(56,189,248,0.35)
+  );
+}
 }

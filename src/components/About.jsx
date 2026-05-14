@@ -1,30 +1,24 @@
 import "./About.css";
-
-import {
-  FaReact,
-  FaNodeJs,
-  FaDatabase,
-  FaCode,
-} from "react-icons/fa";
+import profile from "../assets/profile.png";
 
 function About() {
   return (
-    <section className="about">
+    <section className="about" id="about">
 
-      {/* Blur Effects */}
-      <div className="about-blur about-blur-1"></div>
-      <div className="about-blur about-blur-2"></div>
+      {/* LEFT SIDE IMAGE */}
+      <div className="about-image">
+        <img src={profile} alt="Profile" />
+      </div>
 
-      {/* LEFT SIDE */}
+      {/* RIGHT SIDE CONTENT */}
       <div className="about-content">
 
-        <p className="section-subtitle">
+        <p className="about-subtitle">
           About Me
         </p>
 
-        <h2 className="section-title">
-          Passionate
-          <span> MERN Stack Developer</span>
+        <h2 className="about-title">
+          MERN Stack Developer
         </h2>
 
         <p className="about-description">
@@ -35,65 +29,48 @@ function About() {
           I enjoy creating interactive frontend UI,
           backend APIs and database-driven applications
           using MongoDB, Express.js, React and Node.js.
-
-          Currently, I am also learning DevOps,
-          Linux and modern development workflows
-          to improve my full stack development skills.
         </p>
 
         {/* INFO SECTION */}
         <div className="about-info">
 
-          <div className="info-box">
-            <span>Name</span>
+          <div className="info-row">
+            <span>Name:</span>
             <p>Prince Thakur</p>
           </div>
 
-          <div className="info-box">
-            <span>Email</span>
+          <div className="info-row">
+            <span>Email:</span>
             <p>princethakur7778@gmail.com</p>
           </div>
 
-          <div className="info-box">
-            <span>Education</span>
+          <div className="info-row">
+            <span>Education:</span>
             <p>MCA Student</p>
           </div>
 
-          <div className="info-box">
-            <span>Specialization</span>
+          <div className="info-row">
+            <span>Specialization:</span>
             <p>MERN Stack Development</p>
+          </div>
+
+          <div className="info-row">
+            <span>Location:</span>
+            <p>India</p>
           </div>
 
         </div>
 
-      </div>
-
-      {/* RIGHT SIDE */}
-      <div className="about-cards">
-
-        <div className="about-card">
-          <FaReact className="card-icon" />
-          <h3>React</h3>
-          <p>Modern Frontend UI</p>
+        {/* EXPERIENCE */}
+        <div className="about-projects">
+          <h3>5+</h3>
+          <p>Projects Completed</p>
         </div>
 
-        <div className="about-card">
-          <FaNodeJs className="card-icon" />
-          <h3>Node.js</h3>
-          <p>Backend Development</p>
-        </div>
-
-        <div className="about-card">
-          <FaDatabase className="card-icon" />
-          <h3>MongoDB</h3>
-          <p>Database Management</p>
-        </div>
-
-        <div className="about-card">
-          <FaCode className="card-icon" />
-          <h3>REST APIs</h3>
-          <p>API Integration & Development</p>
-        </div>
+        {/* BUTTON */}
+        <button className="download-btn">
+          Download CV
+        </button>
 
       </div>
 

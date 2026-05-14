@@ -57,6 +57,8 @@
   max-width: 650px;
 
   z-index: 1;
+
+  animation: fadeUp 1s ease;
 }
 
 .hero-subtitle {
@@ -73,15 +75,37 @@
   color: white;
 }
 
-.hero-title span {
-  color: #38bdf8;
+/* NAME TYPING */
+
+.hero-title .name-text {
+  color: #ffffff;
+  font-weight: 700;
 }
+
+/* ROLE */
 
 .hero-role {
   font-size: 42px;
   color: #cbd5e1;
   margin-top: 20px;
 }
+
+/* TYPING ROLE */
+
+.typing-text {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+/* CURSOR */
+
+.typed-cursor {
+  color: #38bdf8;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* DESCRIPTION */
 
 .hero-description {
   margin-top: 30px;
@@ -120,7 +144,8 @@
   color: #0f172a;
   border: none;
 
-  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+  box-shadow:
+    0 10px 30px rgba(56, 189, 248, 0.3);
 }
 
 .hire-btn:hover {
@@ -153,6 +178,8 @@
   min-width: 320px;
 
   z-index: 1;
+
+  animation: floatImage 4s ease-in-out infinite;
 }
 
 .image-card {
@@ -181,6 +208,44 @@
   object-fit: cover;
 
   border-radius: 20px;
+
+  transition: 0.3s ease;
+
+  filter: drop-shadow(
+    0 0 30px rgba(56,189,248,0.35)
+  );
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes floatImage {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
 }
 
 /* RESPONSIVE */
@@ -217,18 +282,18 @@
     justify-content: center;
   }
 
+  .image-card {
+    width: 320px;
+    height: 420px;
+  }
+
   .image-card img {
-  height: 100%;
-  width: auto;
+    height: 100%;
+    width: auto;
 
-  object-fit: contain;
+    object-fit: contain;
 
-  transform: scale(1.15);
+    transform: scale(1.1);
+  }
 
-  transition: 0.3s ease;
-
-  filter: drop-shadow(
-    0 0 30px rgba(56,189,248,0.35)
-  );
-}
 }

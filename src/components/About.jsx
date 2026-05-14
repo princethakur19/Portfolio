@@ -1,14 +1,14 @@
 import "./About.css";
-import profile from "../assets/profile.png";
+// import profile from "../assets/profile.png";
 
 function About() {
   return (
     <section className="about" id="about">
 
       {/* LEFT SIDE IMAGE */}
-      <div className="about-image">
+      {/* <div className="about-image">
         <img src={profile} alt="Profile" />
-      </div>
+      </div> */}
 
       {/* RIGHT SIDE CONTENT */}
       <div className="about-content">

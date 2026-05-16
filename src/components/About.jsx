@@ -1,5 +1,5 @@
 import "./About.css";
-// import profile from "../assets/profile.png";
+// import kk from "../assets/profile.png";
 
 function About() {
   return (
@@ -7,7 +7,7 @@ function About() {
 
       {/* LEFT SIDE IMAGE */}
       {/* <div className="about-image">
-        <img src={profile} alt="Profile" />
+        <img src={kk} alt="Profile" />
       </div> */}
 
       {/* RIGHT SIDE CONTENT */}

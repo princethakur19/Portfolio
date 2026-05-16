@@ -1,8 +1,6 @@
 import "./Projects.css";
 
-import project1 from "../assets/projects/project1.png";
-import project2 from "../assets/projects/project2.png";
-import project3 from "../assets/projects/project3.png";
+import project1 from "../assets/tradefair.png";
 
 function Projects() {
   return (
@@ -13,125 +11,67 @@ function Projects() {
       </p>
 
       <h2 className="projects-title">
-        Featured Projects
+        Featured Project
       </h2>
 
       <div className="projects-container">
 
-        {/* PROJECT 1 */}
+        {/* PROJECT CARD */}
         <div className="project-card">
 
+          {/* PROJECT IMAGE */}
           <div className="project-image">
-            <img src={project1} alt="Project" />
+            <img
+              src={project1}
+              alt="Trade Fair Stall Booking System"
+            />
           </div>
 
+          {/* PROJECT CONTENT */}
           <div className="project-content">
 
             <h3>
-              MERN Blog Application
+              Trade Fair Stall Booking System
             </h3>
 
             <p>
-              Full stack blog platform with
-              authentication, CRUD operations
-              and responsive UI.
+              A full stack MERN application developed
+              for managing trade fair stall bookings.
+
+              The system allows users to browse stalls,
+              book available spaces, manage bookings,
+              and provides an admin panel for stall
+              management and booking control.
+
+              Built with responsive UI and modern
+              full stack web technologies.
             </p>
 
+            {/* TECH STACK */}
             <div className="project-tech">
+
               <span>React</span>
               <span>Node.js</span>
+              <span>Express.js</span>
               <span>MongoDB</span>
+              <span>MERN Stack</span>
+
             </div>
 
+            {/* BUTTONS */}
             <div className="project-buttons">
 
+              {/* LIVE DEMO */}
               <a href="#">
-                Live Demo
+                Coming Soon
               </a>
 
-              <a href="#">
-                GitHub
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* PROJECT 2 */}
-        <div className="project-card">
-
-          <div className="project-image">
-            <img src={project2} alt="Project" />
-          </div>
-
-          <div className="project-content">
-
-            <h3>
-              Portfolio Website
-            </h3>
-
-            <p>
-              Modern responsive developer
-              portfolio built using React
-              and custom CSS.
-            </p>
-
-            <div className="project-tech">
-              <span>React</span>
-              <span>CSS</span>
-              <span>Responsive</span>
-            </div>
-
-            <div className="project-buttons">
-
-              <a href="#">
-                Live Demo
-              </a>
-
-              <a href="#">
-                GitHub
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* PROJECT 3 */}
-        <div className="project-card">
-
-          <div className="project-image">
-            <img src={project3} alt="Project" />
-          </div>
-
-          <div className="project-content">
-
-            <h3>
-              Weather App
-            </h3>
-
-            <p>
-              Weather forecast app using
-              API integration and responsive
-              modern UI design.
-            </p>
-
-            <div className="project-tech">
-              <span>JavaScript</span>
-              <span>API</span>
-              <span>CSS</span>
-            </div>
-
-            <div className="project-buttons">
-
-              <a href="#">
-                Live Demo
-              </a>
-
-              <a href="#">
+              {/* GITHUB */}
+              <a
+                href="https://github.com/princethakur19/TradeFairBook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub
               </a>
 

@@ -41,7 +41,7 @@ function Hero() {
   }, []);
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
 
       {/* Background Blur */}
       <div className="blur blur-1"></div>

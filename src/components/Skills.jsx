@@ -1,94 +1,70 @@
 import "./Skills.css";
+      name: "MongoDB",
+      className: "mongo",
+    },
+    {
+      icon: <FaGitAlt />,
+      name: "Git",
+      className: "git",
+    },
+    {
+      icon: <FaGithub />,
+      name: "GitHub",
+      className: "github",
+    },
+    {
+      icon: <FaLinux />,
+      name: "Linux",
+      className: "linux",
+    },
+    {
+      icon: <SiTailwindcss />,
+      name: "Tailwind",
+      className: "tailwind",
+    },
+  ];
 
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaNodeJs,
-  FaGitAlt,
-  FaGithub,
-  FaLinux,
-} from "react-icons/fa";
-
-import {
-  SiExpress,
-  SiMongodb,
-} from "react-icons/si";
-
-function Skills() {
   return (
     <section className="skills" id="skills">
 
+      {/* BLUR EFFECTS */}
+      <div className="skills-blur blur-1"></div>
+      <div className="skills-blur blur-2"></div>
+
       <p className="skills-subtitle">
-        My Skills
+        Skills & Technologies
       </p>
 
       <h2 className="skills-title">
-        Technologies I Work With
+        My Tech Stack
       </h2>
 
-      <div className="skills-container">
+      <p className="skills-description">
+        Technologies and tools I use to build
+        modern full stack web applications.
+      </p>
 
-        {/* HTML */}
-        <div className="skill-card">
-          <FaHtml5 className="skill-icon html" />
-          <h3>HTML5</h3>
-        </div>
+      <div className="skills-grid">
 
-        {/* CSS */}
-        <div className="skill-card">
-          <FaCss3Alt className="skill-icon css" />
-          <h3>CSS3</h3>
-        </div>
+        {skills.map((skill, index) => (
 
-        {/* JS */}
-        <div className="skill-card">
-          <FaJs className="skill-icon js" />
-          <h3>JavaScript</h3>
-        </div>
+          <div className="skill-card" key={index}>
 
-        {/* React */}
-        <div className="skill-card">
-          <FaReact className="skill-icon react" />
-          <h3>React</h3>
-        </div>
+            <div className={`skill-icon ${skill.className}`}>
+              {skill.icon}
+            </div>
 
-        {/* Node */}
-        <div className="skill-card">
-          <FaNodeJs className="skill-icon node" />
-          <h3>Node.js</h3>
-        </div>
+            <h3>{skill.name}</h3>
 
-        {/* Express */}
-        <div className="skill-card">
-          <SiExpress className="skill-icon express" />
-          <h3>Express.js</h3>
-        </div>
+            <span>
+              Modern Development
+            </span>
 
-        {/* MongoDB */}
-        <div className="skill-card">
-          <SiMongodb className="skill-icon mongo" />
-          <h3>MongoDB</h3>
-        </div>
+            <div className="skill-glow"></div>
 
-        {/* Git */}
-        <div className="skill-card">
-          <FaGitAlt className="skill-icon git" />
-          <h3>Git</h3>
-        </div>
+          </div>
 
-        {/* GitHub */}
-        <div className="skill-card">
-          <FaGithub className="skill-icon github" />
-          <h3>GitHub</h3>
-        </div>
-
-        {/* Linux */}
-        <div className="skill-card">
-          <FaLinux className="skill-icon linux" />
-          <h3>Linux</h3>
-        </div>
+        ))}
 
       </div>
 

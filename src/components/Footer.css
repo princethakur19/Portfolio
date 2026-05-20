@@ -1,0 +1,175 @@
+.footer {
+  width: 100%;
+
+  padding: 80px 8% 30px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #07152d 0%,
+    #0f172a 100%
+  );
+
+  border-top:
+  1px solid rgba(255,255,255,0.08);
+}
+
+/* TOP */
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  flex-wrap: wrap;
+
+  padding-bottom: 50px;
+
+  border-bottom:
+  1px solid rgba(255,255,255,0.08);
+}
+
+/* LOGO */
+
+.footer-logo {
+  flex: 1;
+  min-width: 260px;
+}
+
+.footer-logo h2 {
+  color: white;
+
+  font-size: 38px;
+
+  margin-bottom: 18px;
+}
+
+.footer-logo p {
+  color: #94a3b8;
+
+  max-width: 320px;
+
+  line-height: 1.8;
+}
+
+/* LINKS */
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.footer-links h3 {
+  color: white;
+
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #38bdf8;
+
+  transform: translateX(5px);
+}
+
+/* SOCIAL */
+
+.footer-social h3 {
+  color: white;
+
+  margin-bottom: 20px;
+}
+
+.footer-icons {
+  display: flex;
+
+  gap: 16px;
+}
+
+.footer-icons a {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  color: white;
+
+  font-size: 18px;
+
+  transition: 0.3s ease;
+}
+
+.footer-icons a:hover {
+  background:
+  linear-gradient(
+    135deg,
+    #38bdf8,
+    #0ea5e9
+  );
+
+  color: #0f172a;
+
+  transform: translateY(-5px);
+}
+
+/* BOTTOM */
+
+.footer-bottom {
+  text-align: center;
+
+  padding-top: 30px;
+}
+
+.footer-bottom p {
+  color: #94a3b8;
+
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+  .footer-top {
+    gap: 40px;
+  }
+
+  .footer-logo h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .footer {
+    padding: 70px 6% 25px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-logo p {
+    max-width: 100%;
+  }
+}

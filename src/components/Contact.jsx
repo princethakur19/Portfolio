@@ -73,7 +73,7 @@ function Contact() {
               <h4>Phone</h4>
 
               <p>
-                +91 0000000000
+                +91 7874000516
               </p>
             </div>
 
@@ -91,7 +91,7 @@ function Contact() {
               <h4>Location</h4>
 
               <p>
-                India
+                Valsad, Gujarat, India
               </p>
             </div>
 

@@ -7,8 +7,9 @@ import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
-  FaTwitter,
 } from "react-icons/fa";
+
+import { FaXTwitter } from "react-icons/fa6";
 
 function Contact() {
   return (
@@ -108,25 +109,41 @@ function Contact() {
 
               {/* GITHUB */}
 
-              <a href="#">
+              <a
+                href="https://github.com/princethakur19"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub />
               </a>
 
               {/* LINKEDIN */}
 
-              <a href="#">
+              <a
+                href="https://www.linkedin.com/in/prince-thakur-a99144264"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaLinkedin />
               </a>
 
-              {/* TWITTER */}
+              {/* X / TWITTER */}
 
-              <a href="#">
-                <FaTwitter />
+              <a
+                href="https://x.com/PinceThakur"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaXTwitter />
               </a>
 
               {/* INSTAGRAM */}
 
-              <a href="#">
+              <a
+                href="https://instagram.com/princethakur.19"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaInstagram />
               </a>
 

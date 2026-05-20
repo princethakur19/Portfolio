@@ -2,8 +2,11 @@ import "./Contact.css";
 
 import {
   FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
   FaGithub,
   FaLinkedin,
+  FaInstagram,
 } from "react-icons/fa";
 
 function Contact() {
@@ -17,12 +20,12 @@ function Contact() {
       </p>
 
       <h2 className="contact-title">
-        Let’s Work Together
+        Get In Touch
       </h2>
 
       <p className="contact-description">
         Feel free to contact me for
-        collaboration, projects or
+        projects, collaboration or
         opportunities.
       </p>
 
@@ -34,14 +37,20 @@ function Contact() {
 
         <div className="contact-info">
 
+          <h3>
+            Contact Information
+          </h3>
+
           {/* EMAIL */}
 
-          <div className="contact-card">
+          <div className="info-card">
 
-            <FaEnvelope className="contact-icon" />
+            <div className="info-icon">
+              <FaEnvelope />
+            </div>
 
             <div>
-              <h3>Email</h3>
+              <h4>Email</h4>
 
               <p>
                 princethakur7778@gmail.com
@@ -50,34 +59,64 @@ function Contact() {
 
           </div>
 
-          {/* GITHUB */}
+          {/* PHONE */}
 
-          <div className="contact-card">
+          <div className="info-card">
 
-            <FaGithub className="contact-icon" />
+            <div className="info-icon">
+              <FaPhoneAlt />
+            </div>
 
             <div>
-              <h3>GitHub</h3>
+              <h4>Phone</h4>
 
               <p>
-                github.com/yourusername
+                +91 0000000000
               </p>
             </div>
 
           </div>
 
-          {/* LINKEDIN */}
+          {/* LOCATION */}
 
-          <div className="contact-card">
+          <div className="info-card">
 
-            <FaLinkedin className="contact-icon" />
+            <div className="info-icon">
+              <FaMapMarkerAlt />
+            </div>
 
             <div>
-              <h3>LinkedIn</h3>
+              <h4>Location</h4>
 
               <p>
-                linkedin.com/in/yourprofile
+                India
               </p>
+            </div>
+
+          </div>
+
+          {/* SOCIALS */}
+
+          <div className="social-section">
+
+            <h4>
+              Connect with me
+            </h4>
+
+            <div className="social-icons">
+
+              <a href="#">
+                <FaGithub />
+              </a>
+
+              <a href="#">
+                <FaLinkedin />
+              </a>
+
+              <a href="#">
+                <FaInstagram />
+              </a>
+
             </div>
 
           </div>
@@ -86,28 +125,85 @@ function Contact() {
 
         {/* RIGHT SIDE */}
 
-        <form className="contact-form">
+        <div className="contact-form-box">
 
-          <input
-            type="text"
-            placeholder="Your Name"
-          />
+          <h3>
+            Send Me a Message
+          </h3>
 
-          <input
-            type="email"
-            placeholder="Your Email"
-          />
+          <form className="contact-form">
 
-          <textarea
-            rows="6"
-            placeholder="Your Message"
-          ></textarea>
+            {/* TOP INPUTS */}
 
-          <button type="submit">
-            Send Message
-          </button>
+            <div className="input-row">
 
-        </form>
+              <div className="input-group">
+
+                <label>
+                  Your Name
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                />
+
+              </div>
+
+              <div className="input-group">
+
+                <label>
+                  Your Email
+                </label>
+
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                />
+
+              </div>
+
+            </div>
+
+            {/* SUBJECT */}
+
+            <div className="input-group">
+
+              <label>
+                Subject
+              </label>
+
+              <input
+                type="text"
+                placeholder="How can I help you?"
+              />
+
+            </div>
+
+            {/* MESSAGE */}
+
+            <div className="input-group">
+
+              <label>
+                Message
+              </label>
+
+              <textarea
+                rows="6"
+                placeholder="Write your message here..."
+              ></textarea>
+
+            </div>
+
+            {/* BUTTON */}
+
+            <button type="submit">
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
 
       </div>
 

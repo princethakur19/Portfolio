@@ -12,11 +12,9 @@ function Footer() {
   return (
     <footer className="footer">
 
-      {/* TOP */}
+      <div className="footer-content">
 
-      <div className="footer-top">
-
-        {/* LOGO */}
+        {/* LEFT */}
 
         <div className="footer-logo">
 
@@ -25,94 +23,62 @@ function Footer() {
           </h2>
 
           <p>
-            MERN Stack Developer passionate
-            about building modern and
-            responsive web applications.
+            MERN Stack Developer
           </p>
 
         </div>
 
-        {/* QUICK LINKS */}
+        {/* CENTER */}
 
         <div className="footer-links">
 
-          <h3>
-            Quick Links
-          </h3>
+          <a href="#home">Home</a>
 
-          <a href="#home">
-            Home
-          </a>
+          <a href="#about">About</a>
 
-          <a href="#about">
-            About
-          </a>
+          <a href="#projects">Projects</a>
 
-          <a href="#projects">
-            Projects
-          </a>
+          <a href="#skills">Skills</a>
 
-          <a href="#skills">
-            Skills
-          </a>
-
-          <a href="#contact">
-            Contact
-          </a>
+          <a href="#contact">Contact</a>
 
         </div>
 
-        {/* SOCIAL LINKS */}
+        {/* RIGHT */}
 
-        <div className="footer-social">
+        <div className="footer-icons">
 
-          <h3>
-            Follow Me
-          </h3>
+          <a
+            href="https://github.com/princethakur19"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub />
+          </a>
 
-          <div className="footer-icons">
+          <a
+            href="https://www.linkedin.com/in/prince-thakur-a99144264"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin />
+          </a>
 
-            {/* GITHUB */}
+          <a
+            href="https://x.com/PinceThakur"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaXTwitter />
+          </a>
 
-            <a
-              href="https://github.com/princethakur19"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub />
-            </a>
-
-            {/* LINKEDIN */}
-
-            <a
-              href="https://www.linkedin.com/in/prince-thakur-a99144264"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin />
-            </a>
-
-            {/* X */}
-
-            <a
-              href="https://x.com/PinceThakur"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaXTwitter />
-            </a>
-
-            {/* INSTAGRAM */}
-
-            <a
-              href="https://instagram.com/princethakur.19"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram />
-            </a>
-
-          </div>
+          <a
+            href="https://instagram.com/princethakur.19"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram />
+          </a>
 
         </div>
 

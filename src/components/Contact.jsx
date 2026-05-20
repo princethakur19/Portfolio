@@ -7,6 +7,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
+  FaTwitter,
 } from "react-icons/fa";
 
 function Contact() {
@@ -95,7 +96,7 @@ function Contact() {
 
           </div>
 
-          {/* SOCIALS */}
+          {/* SOCIAL SECTION */}
 
           <div className="social-section">
 
@@ -105,13 +106,25 @@ function Contact() {
 
             <div className="social-icons">
 
+              {/* GITHUB */}
+
               <a href="#">
                 <FaGithub />
               </a>
 
+              {/* LINKEDIN */}
+
               <a href="#">
                 <FaLinkedin />
               </a>
+
+              {/* TWITTER */}
+
+              <a href="#">
+                <FaTwitter />
+              </a>
+
+              {/* INSTAGRAM */}
 
               <a href="#">
                 <FaInstagram />
@@ -137,6 +150,8 @@ function Contact() {
 
             <div className="input-row">
 
+              {/* NAME */}
+
               <div className="input-group">
 
                 <label>
@@ -149,6 +164,8 @@ function Contact() {
                 />
 
               </div>
+
+              {/* EMAIL */}
 
               <div className="input-group">
 

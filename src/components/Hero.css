@@ -6,10 +6,9 @@
   justify-content: center;
   align-items: center;
 
-  gap: 80px;
-  flex-wrap: wrap;
+  gap: 5rem;
 
-  padding: 120px 8%;
+  padding: 7.5rem 8% 5rem;
 
   position: relative;
   overflow: hidden;
@@ -53,7 +52,7 @@
 
 .hero-content {
   flex: 1;
-  min-width: 320px;
+  min-width: 0;
   max-width: 650px;
 
   z-index: 1;
@@ -69,7 +68,7 @@
 }
 
 .hero-title {
-  font-size: 85px;
+  font-size: clamp(2.4rem, 6vw, 5.2rem);
   line-height: 1.1;
   font-weight: 700;
   color: white;
@@ -85,7 +84,7 @@
 /* ROLE */
 
 .hero-role {
-  font-size: 42px;
+  font-size: clamp(1.5rem, 3.3vw, 2.6rem);
   color: #cbd5e1;
   margin-top: 20px;
 }
@@ -110,7 +109,7 @@
 .hero-description {
   margin-top: 30px;
   color: #94a3b8;
-  font-size: 20px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.8;
 }
 
@@ -175,7 +174,7 @@
   justify-content: center;
   align-items: center;
 
-  min-width: 320px;
+  min-width: 0;
 
   z-index: 1;
 
@@ -183,8 +182,8 @@
 }
 
 .image-card {
-  width: 400px;
-  height: 500px;
+  width: min(100%, 25rem);
+  min-height: 31.25rem;
 
   background: rgba(255, 255, 255, 0.05);
 
@@ -204,7 +203,8 @@
 
 .image-card img {
   width: 90%;
-  height: 90%;
+  height: auto;
+  max-height: 90%;
   object-fit: cover;
 
   border-radius: 20px;
@@ -256,8 +256,8 @@
     flex-direction: column-reverse;
     text-align: center;
 
-    padding-top: 150px;
-    gap: 60px;
+    padding-top: 8.8rem;
+    gap: 3rem;
   }
 
   .hero-content {
@@ -266,34 +266,70 @@
     align-items: center;
   }
 
-  .hero-title {
-    font-size: 60px;
-  }
-
-  .hero-role {
-    font-size: 32px;
-  }
-
-  .hero-description {
-    font-size: 18px;
-  }
-
   .hero-buttons {
     justify-content: center;
   }
 
   .image-card {
-    width: 320px;
-    height: 420px;
+    width: min(100%, 21.5rem);
+    min-height: 27rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 8rem 1.5rem 4.5rem;
   }
 
-  .image-card img {
-    height: 100%;
-    width: auto;
-
-    object-fit: contain;
-
-    transform: scale(1.1);
+  .hero-subtitle {
+    font-size: 1.1rem;
   }
 
+  .hero-buttons {
+    width: 100%;
+    gap: 0.9rem;
+  }
+
+  .hire-btn,
+  .project-btn {
+    flex: 1 1 210px;
+  }
+
+  .hero-image {
+    animation: none;
+  }
+
+  .blur {
+    filter: blur(90px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 7rem 1rem 4rem;
+    gap: 2.2rem;
+  }
+
+  .hero-role {
+    margin-top: 0.85rem;
+  }
+
+  .hero-description {
+    margin-top: 1.2rem;
+    line-height: 1.65;
+  }
+
+  .hero-buttons {
+    margin-top: 1.6rem;
+  }
+
+  .hire-btn,
+  .project-btn {
+    width: 100%;
+  }
+
+  .image-card {
+    min-height: 23rem;
+    border-radius: 1.2rem;
+  }
 }

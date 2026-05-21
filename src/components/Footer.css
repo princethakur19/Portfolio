@@ -1,20 +1,9 @@
 .footer {
   width: 100%;
-
-  padding: 22px 8%;
-
-  background:
-  linear-gradient(
-    135deg,
-    #07152d 0%,
-    #0f172a 100%
-  );
-
-  border-top:
-  1px solid rgba(255,255,255,0.08);
+  padding: 1.25rem 8%;
+  background: linear-gradient(135deg, #07152d 0%, #0f172a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
-
-/* BOTTOM */
 
 .footer-bottom {
   text-align: center;
@@ -22,21 +11,28 @@
 
 .footer-bottom p {
   color: #94a3b8;
-
-  font-size: 14px;
-
-  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
 }
 
-/* RESPONSIVE */
-
-@media (max-width: 600px) {
-
+@media (max-width: 992px) {
   .footer {
-    padding: 20px 6%;
+    padding: 1.15rem 6%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.1rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem;
   }
 
   .footer-bottom p {
-    font-size: 13px;
+    font-size: 0.82rem;
   }
 }

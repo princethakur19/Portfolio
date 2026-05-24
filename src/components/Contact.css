@@ -213,3 +213,14 @@
     font-size: 18px;
   }
 }
+
+.contact-form button:disabled {
+opacity: 0.7;
+cursor: not-allowed;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+border-color: #38bdf8;
+box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}

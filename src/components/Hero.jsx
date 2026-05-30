@@ -1,5 +1,4 @@
 import "./Hero.css";
-import profile from "../assets/profile.jpeg";
 
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
@@ -9,20 +8,18 @@ function Hero() {
   const nameRef = useRef(null);
 
   useEffect(() => {
-    // Name typing animation
     const typedName = new Typed(nameRef.current, {
       strings: ["Prince Thakur"],
       typeSpeed: 120,
       showCursor: false,
     });
 
-    // Role typing animation
     const typedRole = new Typed(roleRef.current, {
       strings: [
         "Frontend Developer",
         "React Developer",
-        "Web Designer",
         "UI Creator",
+        "Web Designer",
       ],
 
       typeSpeed: 80,
@@ -39,11 +36,14 @@ function Hero() {
 
   return (
     <section className="hero" id="home">
-      {/* Background Blur */}
+
+      {/* BLUR EFFECTS */}
+
       <div className="blur blur-1"></div>
       <div className="blur blur-2"></div>
 
-      {/* LEFT SIDE */}
+      {/* HERO CONTENT */}
+
       <div className="hero-content">
         <p className="hero-subtitle">Hello, I'm</p>
 
@@ -52,21 +52,22 @@ function Hero() {
         </h1>
 
         <h2 className="hero-role">
-          I'm a <span ref={roleRef} className="typing-text"></span>
+          Frontend <span ref={roleRef} className="typing-text"></span>
         </h2>
-
         <p className="hero-description">
           I build modern, responsive and visually appealing web applications
           with clean UI and smooth user experience.
         </p>
 
+        {/* BUTTONS */}
+
         <div className="hero-buttons">
           <button
             className="hire-btn"
             onClick={() => {
-              document
-                .getElementById("contact")
-                .scrollIntoView({ behavior: "smooth" });
+              document.getElementById("contact").scrollIntoView({
+                behavior: "smooth",
+              });
             }}
           >
             Hire Me
@@ -75,20 +76,13 @@ function Hero() {
           <button
             className="project-btn"
             onClick={() => {
-              document
-                .getElementById("projects")
-                .scrollIntoView({ behavior: "smooth" });
+              document.getElementById("projects").scrollIntoView({
+                behavior: "smooth",
+              });
             }}
           >
             View Projects
           </button>
-        </div>
-      </div>
-
-      {/* RIGHT SIDE */}
-      <div className="hero-image">
-        <div className="image-card">
-          <img src={profile} alt="Profile" />
         </div>
       </div>
     </section>

@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg-main: #f3f8fc;
+  --bg-surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --primary: #0284c7;
+  --primary-strong: #0369a1;
+  --line-soft: #dbe7f3;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +21,9 @@ html {
 }
 
 body {
-  font-family: 'Poppins',Arial, sans-serif;
-  background-color: #0f172a;
-  color: white;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
   overflow-x: hidden;
 }
 

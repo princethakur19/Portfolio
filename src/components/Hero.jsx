@@ -9,11 +9,21 @@ function Hero() {
   const nameRef = useRef(null);
 
   useEffect(() => {
+    if (!nameRef.current || !roleRef.current) {
+      return undefined;
+    }
 
-    // STATIC NAME
-
-    nameRef.current.innerHTML =
-      "Prince Thakur";
+    // TYPING NAME ANIMATION
+    const typedName = new Typed(
+      nameRef.current,
+      {
+        strings: ["Prince Thakur"],
+        typeSpeed: 90,
+        startDelay: 250,
+        showCursor: false,
+        loop: false,
+      }
+    );
 
     // TYPING ROLE ANIMATION
 
@@ -28,18 +38,19 @@ function Hero() {
           "Web Designer",
         ],
 
-        typeSpeed: 80,
+        typeSpeed: 75,
         backSpeed: 50,
         backDelay: 1500,
+        startDelay: 1300,
         loop: true,
 
       }
     );
 
     return () => {
+      typedName.destroy();
       typedRole.destroy();
     };
-
   }, []);
 
   return (
@@ -50,6 +61,14 @@ function Hero() {
 
       <div className="blur blur-1"></div>
       <div className="blur blur-2"></div>
+      <div className="bg-orb orb-1"></div>
+      <div className="bg-orb orb-2"></div>
+      <div className="bg-orb orb-3"></div>
+      <div className="mesh mesh-1"></div>
+      <div className="mesh mesh-2"></div>
+      <div className="hero-noise"></div>
+      <div className="light-beam beam-1"></div>
+      <div className="light-beam beam-2"></div>
 
       {/* HERO CONTENT */}
 
@@ -64,7 +83,9 @@ function Hero() {
           <span
             ref={nameRef}
             className="name-text"
-          ></span>
+          >
+            Prince Thakur
+          </span>
 
         </h1>
 
@@ -75,7 +96,9 @@ function Hero() {
           <span
             ref={roleRef}
             className="typing-text"
-          ></span>
+          >
+            Frontend Developer
+          </span>
 
         </h2>
 

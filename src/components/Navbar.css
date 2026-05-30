@@ -6,11 +6,10 @@
 
   z-index: 9999;
 
-  backdrop-filter: blur(10px);
-
-  background: rgba(15, 23, 42, 0.85);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.88), rgba(248, 252, 255, 0.8));
+  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
 }
 
 /* NAVBAR */
@@ -25,14 +24,16 @@
   align-items: center;
 
   padding: 0 2rem;
+  position: relative;
 }
 
 /* LOGO */
 
 .logo img {
-  height: 50px;
+  height: 80px;
   width: auto;
   cursor: pointer;
+  filter: saturate(0.95) contrast(1.05);
 }
 
 /* NAV LINKS */
@@ -49,10 +50,10 @@
 
 .nav-links a {
   text-decoration: none;
-  color: white;
+  color: #0f172a;
 
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
 
   transition: 0.3s ease;
 
@@ -60,7 +61,7 @@
 }
 
 .nav-links a:hover {
-  color: #38bdf8;
+  color: #0284c7;
 }
 
 /* Underline Effect */
@@ -75,7 +76,7 @@
   width: 0%;
   height: 2px;
 
-  background: #38bdf8;
+  background: #0ea5e9;
 
   transition: 0.3s;
 }
@@ -88,9 +89,9 @@
   display: none;
   width: 46px;
   height: 46px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.75);
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -101,7 +102,7 @@
 .menu-toggle span {
   width: 22px;
   height: 2px;
-  background: white;
+  background: #0f172a;
   border-radius: 20px;
   transition: transform 0.28s ease, opacity 0.28s ease;
 }
@@ -124,15 +125,15 @@
   padding: 12px 24px;
 
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
 
   background: linear-gradient(
     135deg,
-    #38bdf8,
-    #0ea5e9
+    #0ea5e9,
+    #0284c7
   );
 
-  color: #0f172a;
+  color: #ffffff;
 
   font-size: 15px;
   font-weight: 700;
@@ -144,6 +145,7 @@
 
 .resume-btn:hover {
   transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.35);
 }
 
 /* RESPONSIVE */
@@ -184,6 +186,10 @@
     overflow: hidden;
     pointer-events: none;
     transition: max-height 0.35s ease, opacity 0.3s ease;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 14px;
+    padding: 0 0.5rem;
   }
 
   .nav-links.open {
@@ -202,6 +208,7 @@
     padding: 0.8rem 0.5rem;
     text-align: center;
     font-size: 1rem;
+    color: #0f172a;
   }
 
   .resume-btn {

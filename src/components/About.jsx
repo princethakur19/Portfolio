@@ -1,10 +1,10 @@
 import "./About.css";
 import { useEffect, useRef, useState } from "react";
-// import kk from "../assets/profile.png";
+// Uncomment the line below and ensure the path to your image is correct!
+import profilePic from "../assets/profile.jpeg";
 
 function About() {
   const [isVisible, setIsVisible] = useState(false);
-  const [projectsCount, setProjectsCount] = useState(0);
   const sectionRef = useRef(null);
 
   // Trigger animation when scrolling to this section
@@ -15,7 +15,7 @@ function About() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     if (sectionRef.current) {
@@ -24,41 +24,21 @@ function About() {
     return () => observer.disconnect();
   }, []);
 
-  // Number Counter Animation for projects
-  useEffect(() => {
-    if (isVisible) {
-      let start = 0;
-      const end = 5;
-      const duration = 1500;
-      const incrementTime = Math.abs(Math.floor(duration / end));
-      
-      const timer = setInterval(() => {
-        start += 1;
-        setProjectsCount(start);
-        if (start === end) clearInterval(timer);
-      }, incrementTime);
-      
-      return () => clearInterval(timer);
-    }
-  }, [isVisible]);
-
   return (
     <section className="about" id="about" ref={sectionRef}>
       <div className={`about-wrapper ${isVisible ? "animate-in" : ""}`}>
-
         {/* LEFT SIDE IMAGE */}
         <div className="about-image-container">
           <div className="about-image-card">
-            {/* <img src={kk} alt="Profile" /> */}
-            <div className="image-placeholder">
-              <span>Your Image Here</span>
-            </div>
-            
-            {/* Floating Stats Badge attached to image */}
-            <div className="experience-badge">
-              <span className="badge-number">{projectsCount}+</span>
-              <span className="badge-text">Projects<br/>Completed</span>
-            </div>
+            {/* --- ADD YOUR PHOTO HERE --- */}
+            {/* Remove the image-placeholder div below and uncomment this img tag: */}
+            {/* <img src={profilePic} alt="Prince Thakur Profile" /> */}
+
+            <img
+              src={profilePic}
+              alt="Prince Thakur"
+              className="profile-image"
+            />
           </div>
         </div>
 
@@ -68,9 +48,12 @@ function About() {
           <h2 className="about-title">MERN Stack Developer</h2>
 
           <p className="about-description">
-            I am an MCA student and passionate MERN Stack Developer focused on building modern, responsive and scalable web applications.
-            <br /><br />
-            I enjoy creating interactive frontend UI, backend APIs and database-driven applications using MongoDB, Express.js, React and Node.js.
+            I am an MCA student and passionate MERN Stack Developer focused on
+            building modern, responsive and scalable web applications.
+            <br />
+            <br />I enjoy creating interactive frontend UI, backend APIs and
+            database-driven applications using MongoDB, Express.js, React and
+            Node.js.
           </p>
 
           {/* INTERACTIVE INFO GRID */}
@@ -85,7 +68,7 @@ function About() {
             </div>
             <div className="info-item">
               <span className="info-label">Education</span>
-              <p className="info-value">MCA Student</p>
+              <p className="info-value">MCA Graduate</p>
             </div>
             <div className="info-item">
               <span className="info-label">Specialization</span>
@@ -98,11 +81,14 @@ function About() {
           </div>
 
           {/* BUTTON */}
-          <button className="download-btn">
+          <a
+            href="/Prince_Thakur_Resume.pdf"
+            download="Prince_Thakur_Resume.pdf"
+            className="download-btn"
+          >
             Download CV
-          </button>
+          </a>
         </div>
-
       </div>
     </section>
   );

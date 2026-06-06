@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Your original background */
   background: linear-gradient(180deg, #f8fbff 0%, #f3f8fc 100%);
   font-family: 'Inter', sans-serif;
   overflow: hidden;
@@ -23,7 +22,6 @@
   align-items: center;
   gap: 6rem;
   flex-wrap: wrap;
-  /* Scroll Animation */
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -34,7 +32,7 @@
   transform: translateY(0);
 }
 
-/* --- LEFT SIDE: IMAGE & BADGE --- */
+/* --- LEFT SIDE: IMAGE --- */
 .about-image-container {
   flex: 1;
   min-width: 300px;
@@ -59,53 +57,23 @@
   transform: translateY(-8px);
 }
 
-/* Styles for your image when uncommented */
+/* Styles applied to your image and the placeholder */
 .about-image-card img,
 .image-placeholder {
   width: 100%;
   height: 100%;
   border-radius: 18px;
   object-fit: cover;
+  display: block;
+}
+
+.image-placeholder {
   background: #eaf4fd;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #38bdf8;
   font-weight: 600;
-}
-
-/* Floating interactive badge */
-.experience-badge {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  color: white;
-  padding: 1.2rem 1.8rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  animation: floatBadge 4s ease-in-out infinite;
-}
-
-.badge-number {
-  font-family: 'Outfit', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.badge-text {
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-@keyframes floatBadge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 /* --- RIGHT SIDE: CONTENT --- */
@@ -156,7 +124,6 @@
   transition: all 0.3s ease;
 }
 
-/* Simple hover interaction */
 .info-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(56, 189, 248, 0.08);
@@ -164,7 +131,7 @@
 }
 
 .location-item {
-  grid-column: span 2; /* Makes location span full width if needed */
+  grid-column: span 2; 
 }
 
 .info-label {
@@ -187,6 +154,7 @@
 /* --- BUTTON --- */
 .download-btn {
   font-family: 'Outfit', sans-serif;
+  text-decoration: none;
   padding: 1rem 2.2rem;
   border: none;
   border-radius: 12px;
@@ -213,7 +181,7 @@
   }
 
   .about-info-grid {
-    text-align: left; /* Keep info readable */
+    text-align: left; 
   }
 }
 
@@ -223,20 +191,10 @@
   }
   
   .about-info-grid {
-    grid-template-columns: 1fr; /* Stacks on mobile */
+    grid-template-columns: 1fr; 
   }
 
   .location-item {
     grid-column: span 1;
-  }
-
-  .experience-badge {
-    bottom: -15px;
-    right: -5px;
-    padding: 1rem;
-  }
-  
-  .badge-number {
-    font-size: 2rem;
   }
 }

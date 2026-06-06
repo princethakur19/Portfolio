@@ -3,12 +3,23 @@ import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 
 function Hero() {
+  const nameRef = useRef(null);
   const roleRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
-    if (!roleRef.current) return;
+    if (!nameRef.current || !roleRef.current) return;
 
+    // 1. Typing effect for the Name (Plays once)
+    const typedName = new Typed(nameRef.current, {
+      strings: ["Prince Thakur."],
+      typeSpeed: 70,
+      startDelay: 200,
+      showCursor: false, // Hidden to avoid dual cursors on screen
+      loop: false,
+    });
+
+    // 2. Typing effect for the Role (Loops continuously)
     const typedRole = new Typed(roleRef.current, {
       strings: [
         "Frontend Developer.",
@@ -19,12 +30,13 @@ function Hero() {
       typeSpeed: 60,
       backSpeed: 40,
       backDelay: 2000,
-      startDelay: 300,
+      startDelay: 1500, // Waits a moment for the name to finish typing
       loop: true,
       cursorChar: "|",
     });
 
     return () => {
+      typedName.destroy();
       typedRole.destroy();
     };
   }, []);
@@ -63,7 +75,9 @@ function Hero() {
       <div className="hero-container">
         <p className="hero-greeting">👋 Hello World, my name is</p>
         
-        <h1 className="hero-name">Prince Thakur.</h1>
+        <h1 className="hero-name">
+          <span ref={nameRef}></span>
+        </h1>
         
         <h2 className="hero-role">
           I build things for the web as a <br className="mobile-break" />

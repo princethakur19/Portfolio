@@ -4,8 +4,6 @@ import Typed from "typed.js";
 
 function Hero() {
   const roleRef = useRef(null);
-  
-  // State to track mouse position for the spotlight effect
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
@@ -31,7 +29,6 @@ function Hero() {
     };
   }, []);
 
-  // Update CSS variables based on mouse movement
   const handleMouseMove = (e) => {
     const { currentTarget, clientX, clientY } = e;
     const { left, top, width, height } = currentTarget.getBoundingClientRect();
@@ -52,7 +49,14 @@ function Hero() {
         '--mouse-y': `${mousePos.y}%`
       }}
     >
-      {/* INTERACTIVE SPOTLIGHT BACKGROUND */}
+      {/* DYNAMIC AURORA BACKGROUND */}
+      <div className="hero-bg-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
+      </div>
+
+      {/* INTERACTIVE SPOTLIGHT & GRID */}
       <div className="hero-interactive-bg"></div>
 
       {/* HERO CONTENT */}

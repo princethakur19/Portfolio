@@ -8,29 +8,82 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8fafc; /* Slightly cooler off-white */
+  background-color: #f8fafc;
   overflow: hidden;
-  padding: 2rem;
-  /* Default font for the whole section */
+  /* THE FIX: Added 140px padding to the top to clear the fixed navbar */
+  padding: 140px 2rem 4rem; 
   font-family: 'Inter', sans-serif; 
 }
 
-/* --- INTERACTIVE SPOTLIGHT --- */
-.hero-interactive-bg {
+/* --- DYNAMIC AURORA BACKGROUND --- */
+.hero-bg-shapes {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.6;
+  overflow: hidden;
+  pointer-events: none; /* Allows clicks to pass through to buttons */
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: floatBlobs 15s infinite alternate ease-in-out;
+}
+
+.shape-1 {
+  width: 40vw;
+  height: 40vw;
+  background-color: #38bdf8; /* Light Blue */
+  top: -10%;
+  left: -10%;
+}
+
+.shape-2 {
+  width: 35vw;
+  height: 35vw;
+  background-color: #818cf8; /* Indigo */
+  bottom: -10%;
+  right: -5%;
+  animation-delay: -5s;
+}
+
+.shape-3 {
+  width: 30vw;
+  height: 30vw;
+  background-color: #34d399; /* Mint Green */
+  top: 40%;
+  left: 50%;
+  animation-delay: -10s;
+}
+
+@keyframes floatBlobs {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(50px, 30px) scale(1.1);
+  }
+  100% {
+    transform: translate(-30px, -50px) scale(0.9);
+  }
+}
+
+/* --- INTERACTIVE SPOTLIGHT & GRID --- */
+.hero-interactive-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.8;
   transition: background 0.15s ease;
-  /* This creates a soft blue glow that follows the mouse */
   background: radial-gradient(
-    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-    rgba(14, 165, 233, 0.08),
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(255, 255, 255, 0.4),
     transparent 40%
   );
 }
 
-/* Grid overlay to give texture to the background */
 .hero-interactive-bg::after {
   content: "";
   position: absolute;
@@ -44,7 +97,7 @@
 /* --- TYPOGRAPHY & LAYOUT --- */
 .hero-container {
   position: relative;
-  z-index: 1;
+  z-index: 2; /* Increased z-index to sit above shapes */
   max-width: 850px;
   text-align: center;
   display: flex;
@@ -163,6 +216,11 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 640px) {
+  .hero {
+    /* Slightly less padding on mobile */
+    padding-top: 100px; 
+  }
+
   .hero-cta-group {
     flex-direction: column;
     width: 100%;

@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -25,6 +26,10 @@ body {
   background-color: var(--bg-main);
   color: var(--text-main);
   overflow-x: hidden;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
 }
 
 #root {
@@ -35,4 +40,10 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

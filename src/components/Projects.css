@@ -16,8 +16,10 @@
 }
 
 .projects-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
   color: #0f172a;
-  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   text-align: center;
   margin-bottom: 3.5rem;
 }

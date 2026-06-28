@@ -15,8 +15,10 @@
 
 .contact-title {
   color: #0f172a;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
   text-align: center;
-  font-size: clamp(2rem, 4.4vw, 3.625rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   margin-bottom: 1.1rem;
 }
 

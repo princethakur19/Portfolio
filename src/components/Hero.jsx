@@ -22,10 +22,10 @@ function Hero() {
     // 2. Typing effect for the Role (Loops continuously)
     const typedRole = new Typed(roleRef.current, {
       strings: [
-        "Frontend Developer.",
-        "React Specialist.",
-        "UI Creator.",
-        "Web Designer.",
+        "MERN Stack Developer.",
+        "Full Stack Developer.",
+        "Building modern and responsive web applications.",
+        "MCA Graduate.",
       ],
       typeSpeed: 60,
       backSpeed: 40,

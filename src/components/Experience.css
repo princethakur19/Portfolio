@@ -1,0 +1,219 @@
+/* --- BASE SETUP --- */
+.exp-minimal {
+  width: 100%;
+  min-height: 80vh;
+  padding: 8rem 2rem;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #0f172a;
+}
+
+.exp-container {
+  max-width: 1000px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.exp-container.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- HEADER --- */
+.exp-header {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 5rem;
+  color: #0f172a;
+}
+
+/* --- LIST LAYOUT (Grid with Timeline) --- */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-row {
+  display: grid;
+  /* 180px Date | 40px Timeline Track | Remaining space for content */
+  grid-template-columns: 180px 40px 1fr; 
+  gap: 1.5rem;
+  padding-bottom: 4rem; /* This padding dictates the distance between jobs */
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+/* Removes bottom padding and hides the line on the very last item */
+.exp-row:last-child {
+  padding-bottom: 0;
+}
+.exp-row:last-child .node-line {
+  display: none; 
+}
+
+/* Dim effect on hover for focus */
+.exp-list:hover .exp-row:not(:hover) {
+  opacity: 0.3;
+}
+
+/* --- COLUMN 1: TIMEFRAME --- */
+.exp-timeframe time {
+  font-family: 'Outfit', sans-serif;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  text-align: right; /* Pushes the date elegantly against the timeline */
+  margin-top: 0.35rem; /* Aligns visually with the dot and heading */
+}
+
+/* --- COLUMN 2: TIMELINE VISUAL --- */
+.exp-timeline-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.node-dot {
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 2px solid #0ea5e9; /* Signature blue */
+  border-radius: 50%;
+  z-index: 2;
+  margin-top: 0.5rem; /* Aligns with the text */
+  transition: all 0.3s ease;
+}
+
+/* Makes the dot "pop" when you hover over the row */
+.exp-row:hover .node-dot {
+  background: #0ea5e9;
+  transform: scale(1.3);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+.node-line {
+  position: absolute;
+  top: 24px; /* Starts right below the dot */
+  bottom: 0; /* Stretches to the exact bottom of the row's padding */
+  width: 2px;
+  background: #e2e8f0; /* Soft slate gray line */
+}
+
+/* --- COLUMN 3: DETAILS --- */
+.exp-title-group {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.exp-role {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.exp-separator {
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.exp-company {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0ea5e9;
+}
+
+.exp-summary {
+  color: #475569;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 650px;
+}
+
+.highlight {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Minimalist Tech Stack Pills */
+.exp-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.exp-tech-stack span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+.exp-row:hover .exp-tech-stack span {
+  border-color: #bae6fd;
+  color: #0ea5e9;
+  background: #f0f9ff;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  .exp-minimal {
+    padding: 6rem 1.5rem;
+  }
+
+  .exp-row {
+    /* Collapse the left date column on mobile */
+    grid-template-columns: 30px 1fr; 
+    gap: 1rem;
+  }
+
+  .exp-timeframe {
+    /* Move the date to span across the top of the details on mobile */
+    grid-column: 2;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-timeframe time {
+    text-align: left;
+    margin-top: 0;
+    color: #0ea5e9;
+  }
+
+  /* Reset dot positioning for mobile grid */
+  .exp-timeline-node {
+    grid-row: 1 / 3; /* Spans across date and details */
+  }
+
+  .node-dot {
+    margin-top: 0;
+  }
+
+  .node-line {
+    top: 16px;
+  }
+
+  .exp-list:hover .exp-row:not(:hover) {
+    opacity: 1; /* Turn off dimming on mobile touch screens */
+  }
+}

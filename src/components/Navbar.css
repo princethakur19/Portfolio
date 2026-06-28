@@ -10,14 +10,6 @@
   box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
 }
 
-.scroll-progress {
-  height: 3px;
-  width: 100%;
-  transform-origin: left center;
-  background: linear-gradient(90deg, #0ea5e9, #34d399);
-  box-shadow: 0 0 24px rgba(14, 165, 233, 0.35);
-}
-
 /* NAVBAR */
 
 .navbar {

@@ -1,6 +1,7 @@
 import "./Hero.css";
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
+import { scrollToSection } from "../utils/smoothScroll";
 
 function Hero() {
   const nameRef = useRef(null);
@@ -92,14 +93,14 @@ function Hero() {
         <div className="hero-cta-group">
           <button
             className="btn btn-primary"
-            onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+            onClick={() => scrollToSection("contact")}
           >
             Let's Talk
           </button>
           
           <button
             className="btn btn-secondary"
-            onClick={() => document.getElementById("projects").scrollIntoView({ behavior: "smooth" })}
+            onClick={() => scrollToSection("projects")}
           >
             View My Work
           </button>

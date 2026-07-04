@@ -119,11 +119,14 @@
 .hero-name {
   font-family: 'Outfit', sans-serif;
   font-size: clamp(3.5rem, 8vw, 6.5rem);
-  font-weight: 800;
+  font-weight: 700;
   color: #0f172a;
-  line-height: 1.1;
+  line-height: 1.08;
   margin-bottom: 0.5rem;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.025em;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .hero-role {

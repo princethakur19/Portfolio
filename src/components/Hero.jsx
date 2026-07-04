@@ -2,25 +2,16 @@ import "./Hero.css";
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import { scrollToSection } from "../utils/smoothScroll";
+import { TextScramble } from "./ui/text-scramble";
 
 function Hero() {
-  const nameRef = useRef(null);
   const roleRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
-    if (!nameRef.current || !roleRef.current) return;
+    if (!roleRef.current) return;
 
-    // 1. Typing effect for the Name (Plays once)
-    const typedName = new Typed(nameRef.current, {
-      strings: ["Prince Thakur."],
-      typeSpeed: 70,
-      startDelay: 200,
-      showCursor: false, // Hidden to avoid dual cursors on screen
-      loop: false,
-    });
-
-    // 2. Typing effect for the Role (Loops continuously)
+    // Typing effect for the role (loops continuously)
     const typedRole = new Typed(roleRef.current, {
       strings: [
         "MERN Stack Developer.",
@@ -37,7 +28,6 @@ function Hero() {
     });
 
     return () => {
-      typedName.destroy();
       typedRole.destroy();
     };
   }, []);
@@ -77,7 +67,14 @@ function Hero() {
         <p className="hero-greeting">👋 Hello World, my name is</p>
         
         <h1 className="hero-name">
-          <span ref={nameRef}></span>
+          <TextScramble
+            as="span"
+            duration={2.2}
+            speed={0.07}
+            aria-label="Prince Thakur"
+          >
+            Prince Thakur.
+          </TextScramble>
         </h1>
         
         <h2 className="hero-role">

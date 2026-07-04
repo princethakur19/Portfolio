@@ -325,21 +325,12 @@ function Skills() {
 
         )}
 
-      </div>
-
-      <div className="skills-cloud-section">
-        <div className="skills-cloud-copy">
-          <p className="skills-cloud-eyebrow">My toolkit</p>
-          <h3>Technologies in my orbit</h3>
-          <p>
-            Drag the globe to explore the tools I use across frontend,
-            backend, and development workflows.
-          </p>
+        <div className="skills-cloud-section">
+          <div className="skills-cloud" aria-label="Interactive technology icon globe">
+            <IconCloud iconSlugs={skillIconSlugs} />
+          </div>
         </div>
 
-        <div className="skills-cloud" aria-label="Interactive technology icon globe">
-          <IconCloud iconSlugs={skillIconSlugs} />
-        </div>
       </div>
 
     </section>

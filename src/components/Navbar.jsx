@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import logo from "../assets/logo.png";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa";
 import { scrollToSection } from "../utils/smoothScroll";
 
@@ -19,9 +19,7 @@ function Navbar() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  useEffect(() => {
-    let animationFrame;
-
+  useLayoutEffect(() => {
     const updateActiveSection = () => {
       const sections = navItems
         .map(({ id }) => document.getElementById(id))
@@ -29,19 +27,28 @@ function Navbar() {
 
       if (!sections.length) return;
 
-      const pageBottom = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const markerPosition = window.scrollY + window.innerHeight * 0.35;
+      const navbarBottom = document
+        .querySelector(".navbar")
+        ?.getBoundingClientRect().bottom ?? 0;
+      const scrollPosition = window.scrollY;
+      const activationPosition = scrollPosition + navbarBottom + 2;
       let currentSection = sections[0];
 
-      if (pageBottom >= documentHeight - 2) {
-        currentSection = sections[sections.length - 1];
-      } else {
+      if (scrollPosition > 5) {
         sections.forEach((section) => {
-          if (section.offsetTop <= markerPosition) {
+          const sectionTop = section.getBoundingClientRect().top + scrollPosition;
+
+          if (sectionTop <= activationPosition) {
             currentSection = section;
           }
         });
+      }
+
+      const reachedPageBottom =
+        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+
+      if (reachedPageBottom) {
+        currentSection = sections[sections.length - 1];
       }
 
       setActiveSection((previousSection) =>
@@ -49,19 +56,15 @@ function Navbar() {
       );
     };
 
-    const scheduleUpdate = () => {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = requestAnimationFrame(updateActiveSection);
-    };
-
     updateActiveSection();
-    window.addEventListener("scroll", scheduleUpdate, { passive: true });
-    window.addEventListener("resize", scheduleUpdate);
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    document.addEventListener("scroll", updateActiveSection, { passive: true, capture: true });
+    window.addEventListener("resize", updateActiveSection);
 
     return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener("scroll", scheduleUpdate);
-      window.removeEventListener("resize", scheduleUpdate);
+      window.removeEventListener("scroll", updateActiveSection);
+      document.removeEventListener("scroll", updateActiveSection, { capture: true });
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, []);
 

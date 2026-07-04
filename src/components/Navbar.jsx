@@ -20,30 +20,48 @@ function Navbar() {
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
-    const sections = navItems
-      .map(({ id }) => document.getElementById(id))
-      .filter(Boolean);
+    let animationFrame;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+    const updateActiveSection = () => {
+      const sections = navItems
+        .map(({ id }) => document.getElementById(id))
+        .filter(Boolean);
 
-        if (visibleEntry?.target.id) {
-          setActiveSection(visibleEntry.target.id);
-        }
-      },
-      {
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0.2, 0.4, 0.6],
-      },
-    );
+      if (!sections.length) return;
 
-    sections.forEach((section) => observer.observe(section));
+      const pageBottom = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const markerPosition = window.scrollY + window.innerHeight * 0.35;
+      let currentSection = sections[0];
+
+      if (pageBottom >= documentHeight - 2) {
+        currentSection = sections[sections.length - 1];
+      } else {
+        sections.forEach((section) => {
+          if (section.offsetTop <= markerPosition) {
+            currentSection = section;
+          }
+        });
+      }
+
+      setActiveSection((previousSection) =>
+        previousSection === currentSection.id ? previousSection : currentSection.id,
+      );
+    };
+
+    const scheduleUpdate = () => {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
 
     return () => {
-      observer.disconnect();
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
     };
   }, []);
 
@@ -91,6 +109,7 @@ function Navbar() {
               <a
                 href={`#${item.id}`}
                 className={activeSection === item.id ? "active" : ""}
+                aria-current={activeSection === item.id ? "page" : undefined}
                 onClick={(event) => handleNavClick(event, item.id)}
               >
                 {item.label}

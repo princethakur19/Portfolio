@@ -82,7 +82,7 @@ function About() {
 
           {/* BUTTON */}
           <a
-            href="/Prrince_Thakur_Resume.pdf"
+            href="/Prince_Thakur_Resume.pdf"
             download="Prince_Thakur_Resume.pdf"
             className="download-btn"
           >

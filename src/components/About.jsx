@@ -86,7 +86,7 @@ function About() {
             download="Prince_Thakur_Resume.pdf"
             className="download-btn"
           >
-            Download
+            Download CV
           </a>
         </div>
       </div>

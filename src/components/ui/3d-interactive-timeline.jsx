@@ -30,6 +30,7 @@ function TimelineEventCard({
   const [ref, inView] = useElementInView({ threshold: 0.28 });
   const controls = useAnimation();
   const isEven = index % 2 === 0;
+  const isActive = activeEvent === event.id;
 
   useEffect(() => {
     if (inView) {
@@ -88,7 +89,7 @@ function TimelineEventCard({
       </button>
 
       <motion.div
-        className="timeline3d-card"
+        className={`timeline3d-card ${isActive ? "is-active" : ""}`}
         onMouseEnter={() => setActiveEvent(event.id)}
         onMouseLeave={() => setActiveEvent(null)}
         whileHover={{
@@ -110,8 +111,8 @@ function TimelineEventCard({
               alt={event.title}
               initial={{ scale: 1.12 }}
               animate={{
-                scale: activeEvent === event.id ? 1.04 : 1,
-                y: activeEvent === event.id ? -8 : 0,
+                scale: isActive ? 1.04 : 1,
+                y: isActive ? -8 : 0,
               }}
               transition={{ duration: 0.7 }}
             />
@@ -130,17 +131,9 @@ function TimelineEventCard({
           <h3>{event.title}</h3>
           <p className="timeline3d-company">{event.company}</p>
 
-          <motion.div
-            className="timeline3d-description"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{
-              height: activeEvent === event.id ? "auto" : 0,
-              opacity: activeEvent === event.id ? 1 : 0,
-            }}
-            transition={{ duration: 0.28 }}
-          >
+          <div className="timeline3d-description">
             <p>{event.description}</p>
-          </motion.div>
+          </div>
 
           <div className="timeline3d-tech">
             {event.tech.map((item) => (
@@ -152,7 +145,7 @@ function TimelineEventCard({
         <motion.span
           className="timeline3d-progress"
           initial={{ width: "0%" }}
-          animate={{ width: activeEvent === event.id ? "100%" : "0%" }}
+          animate={{ width: isActive ? "100%" : "0%" }}
           transition={{ duration: 0.45 }}
         />
       </motion.div>

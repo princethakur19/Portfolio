@@ -1,4 +1,4 @@
-import { FiBriefcase, FiCode, FiDatabase } from "react-icons/fi";
+import { FiBriefcase } from "react-icons/fi";
 import Timeline3D from "./ui/3d-interactive-timeline";
 import "./Experience.css";
 

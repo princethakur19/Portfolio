@@ -1,100 +1,58 @@
-import { useEffect, useRef, useState } from "react";
+import { FiBriefcase, FiCode, FiDatabase } from "react-icons/fi";
+import Timeline3D from "./ui/3d-interactive-timeline";
 import "./Experience.css";
 
+import tradeFairImage from "../assets/tradefair.png";
+
+const experienceEvents = [
+  {
+    id: "codesynergix-internship",
+    date: "Jan 2026 - Apr 2026",
+    title: "Software Developer Intern",
+    company: "CodeSynergix",
+    description:
+      "Engineered a full-stack Trade Fair Stall Booking System with MongoDB data modeling, Express APIs, and a responsive React interface for booking and admin workflows.",
+    icon: <FiBriefcase />,
+    image: tradeFairImage,
+    category: "Internship",
+    tech: ["MongoDB", "Express", "React", "Node.js"],
+  },
+  {
+    id: "mern-platform",
+    date: "2026",
+    title: "MERN Application Development",
+    company: "Trade Fair Booking Platform",
+    description:
+      "Built authentication, stall management, booking flows, and dashboard screens with a focus on clean component structure, state-driven UI, and production-ready routing.",
+    icon: <FiCode />,
+    image:
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80",
+    category: "Full Stack",
+    tech: ["JWT", "REST APIs", "React Router", "Vite"],
+  },
+  {
+    id: "database-architecture",
+    date: "2026",
+    title: "Database & API Architecture",
+    company: "Backend Systems",
+    description:
+      "Designed MongoDB collections and API contracts to support stall availability, booking records, user roles, and reliable admin operations across the application.",
+    icon: <FiDatabase />,
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
+    category: "Backend",
+    tech: ["Schemas", "Controllers", "Validation", "Security"],
+  },
+];
+
 function Experience() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section className="exp-minimal" id="experience" ref={sectionRef}>
-      <div className={`exp-container ${isVisible ? "fade-in" : ""}`}>
-        
-        <h2 className="exp-header">Experience.</h2>
-
-        <div className="exp-list">
-          
-          {/* EXPERIENCE ROW 1 */}
-          <article className="exp-row">
-            {/* Column 1: Dates */}
-            <div className="exp-timeframe">
-              <time>Jan 2026 — Apr 2026</time>
-            </div>
-
-            {/* Column 2: Timeline Visual */}
-            <div className="exp-timeline-node">
-              <div className="node-dot"></div>
-              <div className="node-line"></div>
-            </div>
-
-            {/* Column 3: Details */}
-            <div className="exp-details">
-              <div className="exp-title-group">
-                <h3 className="exp-role">Software Developer Intern</h3>
-                <span className="exp-separator">at</span>
-                <span className="exp-company">CodeSynergix</span>
-              </div>
-              
-              <p className="exp-summary">
-                Engineered a full-stack <span className="highlight">Trade Fair Stall Booking System</span>. Architected the database using MongoDB, built RESTful APIs with Node/Express, and developed a responsive, state-driven user interface in React.
-              </p>
-
-              <div className="exp-tech-stack">
-                <span>MongoDB</span>
-                <span>Express</span>
-                <span>React</span>
-                <span>Node.js</span>
-              </div>
-            </div>
-          </article>
-
-          {/* EXPERIENCE ROW 2 (Placeholder to show how the line connects) */}
-          {/* <article className="exp-row">
-            <div className="exp-timeframe">
-              <time>Aug 2025 — Dec 2025</time>
-            </div>
-
-            <div className="exp-timeline-node">
-              <div className="node-dot"></div>
-              <div className="node-line"></div>
-            </div>
-
-            <div className="exp-details">
-              <div className="exp-title-group">
-                <h3 className="exp-role">Freelance Web Developer</h3>
-                <span className="exp-separator">for</span>
-                <span className="exp-company">Local Clients</span>
-              </div>
-              
-              <p className="exp-summary">
-                Designed and developed custom landing pages and interactive portfolios for local businesses, focusing on mobile responsiveness and SEO optimization.
-              </p>
-
-              <div className="exp-tech-stack">
-                <span>JavaScript</span>
-                <span>Tailwind CSS</span>
-                <span>Figma</span>
-              </div>
-            </div>
-          </article> */}
-
-        </div>
-      </div>
+    <section className="experience-section" id="experience">
+      <Timeline3D
+        events={experienceEvents}
+        eyebrow="Career Path"
+        title="Experience."
+      />
     </section>
   );
 }

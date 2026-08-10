@@ -16,6 +16,7 @@ const skillIconSlugs = [
   "tailwindcss",
   "nodedotjs",
   "express",
+  "sql",
   "mongodb",
   "git",
   "github",
@@ -238,6 +239,23 @@ function Skills() {
                 <div
                   className="skill-progress"
                   style={{ width: "78%" }}
+                ></div>
+              </div>
+
+            </div>
+
+            {/* SQL */}
+            <div className="skill-item">
+
+              <div className="skill-info">
+                <h3>SQL</h3>
+                <span>58%</span>
+              </div>
+
+              <div className="skill-bar">
+                <div
+                  className="skill-progress"
+                  style={{ width: "58%" }}
                 ></div>
               </div>
 

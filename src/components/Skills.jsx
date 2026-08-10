@@ -16,7 +16,7 @@ const skillIconSlugs = [
   "tailwindcss",
   "nodedotjs",
   "express",
-  "sql",
+  "mysql",
   "mongodb",
   "git",
   "github",

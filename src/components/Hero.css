@@ -154,9 +154,8 @@
 }
 
 .highlight-text {
-  display: inline-block;
-  max-width: 100%;
-  vertical-align: top;
+  display: inline;
+  overflow-wrap: anywhere;
   color: #0ea5e9;
   background: linear-gradient(135deg, #0ea5e9, #38bdf8);
   -webkit-background-clip: text;
@@ -165,8 +164,12 @@
 }
 
 .typed-cursor {
+  display: inline-block;
+  margin-left: 0.08em;
   color: #0ea5e9;
   font-weight: 400;
+  line-height: inherit;
+  vertical-align: baseline;
 }
 
 .hero-bio {
@@ -327,10 +330,7 @@
   }
 
   .typed-cursor {
-    display: inline-block;
-    margin-left: 0.08em;
     line-height: inherit;
-    vertical-align: baseline;
   }
 
   .hero-cta-group {

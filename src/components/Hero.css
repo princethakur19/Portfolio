@@ -81,11 +81,20 @@
   z-index: 1;
   opacity: 0.8;
   transition: background 0.15s ease;
+  overflow: hidden;
   background: radial-gradient(
     600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
     rgba(255, 255, 255, 0.4),
     transparent 40%
   );
+}
+
+.hero-interactive-bg::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hero-interactive-bg::after {
@@ -269,6 +278,17 @@
         transparent 58%
       ),
       linear-gradient(180deg, rgba(248, 250, 252, 0.08), rgba(248, 250, 252, 0.42));
+  }
+
+  .hero-interactive-bg::before {
+    opacity: 0.72;
+    background: radial-gradient(
+      280px circle,
+      rgba(14, 165, 233, 0.2),
+      rgba(52, 211, 153, 0.12) 42%,
+      transparent 70%
+    );
+    transform: translate(-18%, -10%);
     animation: mobileSpotlight 8s ease-in-out infinite alternate;
   }
 
@@ -330,12 +350,10 @@
 
 @keyframes mobileSpotlight {
   0% {
-    --mouse-x: 32%;
-    --mouse-y: 24%;
+    transform: translate(-18%, -10%) scale(1);
   }
   100% {
-    --mouse-x: 68%;
-    --mouse-y: 58%;
+    transform: translate(22%, 16%) scale(1.08);
   }
 }
 

@@ -32,7 +32,7 @@ function Hero() {
     };
   }, []);
 
-  const handleMouseMove = (e) => {
+  const handlePointerMove = (e) => {
     const { currentTarget, clientX, clientY } = e;
     const { left, top, width, height } = currentTarget.getBoundingClientRect();
     
@@ -46,7 +46,7 @@ function Hero() {
     <section 
       className="hero" 
       id="home"
-      onMouseMove={handleMouseMove}
+      onPointerMove={handlePointerMove}
       style={{
         '--mouse-x': `${mousePos.x}%`,
         '--mouse-y': `${mousePos.y}%`

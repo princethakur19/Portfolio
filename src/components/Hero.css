@@ -316,13 +316,11 @@
   }
 
   .highlight-text {
-    display: flex;
-    width: min(100%, 21rem);
-    min-height: calc(1.25em * 3);
-    margin: 0.2rem auto 0;
-    align-items: flex-start;
-    justify-content: center;
-    overflow: hidden;
+    display: inline;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    overflow: visible;
     overflow-wrap: anywhere;
     text-wrap: balance;
     overflow-anchor: none;
@@ -330,7 +328,9 @@
 
   .typed-cursor {
     display: inline-block;
-    line-height: 1;
+    margin-left: 0.08em;
+    line-height: inherit;
+    vertical-align: baseline;
   }
 
   .hero-cta-group {

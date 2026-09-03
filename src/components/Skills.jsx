@@ -1,12 +1,24 @@
 import "./Skills.css";
-import { useState } from "react";
 import { IconCloud } from "./ui/interactive-icon-cloud";
 
 import {
-  FaCode,
-  FaServer,
-  FaTools,
+  FaCss3Alt,
+  FaGitAlt,
+  FaGithub,
+  FaHtml5,
+  FaJs,
+  FaLinux,
+  FaNodeJs,
+  FaReact,
 } from "react-icons/fa";
+import {
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiNpm,
+  SiTailwindcss,
+  SiVite,
+} from "react-icons/si";
 
 const skillIconSlugs = [
   "html5",
@@ -26,10 +38,39 @@ const skillIconSlugs = [
   "visualstudiocode",
 ];
 
+const skillGroups = [
+  {
+    title: "Frontend",
+    skills: [
+      { name: "HTML5", icon: FaHtml5 },
+      { name: "CSS3", icon: FaCss3Alt },
+      { name: "JavaScript", icon: FaJs },
+      { name: "React", icon: FaReact },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+    ],
+  },
+  {
+    title: "Backend",
+    skills: [
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "MySQL", icon: SiMysql },
+      { name: "MongoDB", icon: SiMongodb },
+    ],
+  },
+  {
+    title: "Tools & Platforms",
+    skills: [
+      { name: "Git", icon: FaGitAlt },
+      { name: "GitHub", icon: FaGithub },
+      { name: "Linux", icon: FaLinux },
+      { name: "Vite", icon: SiVite },
+      { name: "NPM", icon: SiNpm },
+    ],
+  },
+];
+
 function Skills() {
-
-  const [activeTab, setActiveTab] = useState("frontend");
-
   return (
     <section className="skills" id="skills">
 
@@ -52,296 +93,22 @@ function Skills() {
 
       <div className="skills-box">
 
-        {/* TABS */}
+        <div className="skills-content">
+          {skillGroups.map((group) => (
+            <div className="skill-category" key={group.title}>
+              <h3>{group.title}</h3>
 
-        <div className="skills-tabs">
-
-          {/* FRONTEND */}
-
-          <button
-            className={
-              activeTab === "frontend"
-              ? "active-tab"
-              : ""
-            }
-            onClick={() => setActiveTab("frontend")}
-          >
-
-            <FaCode className="tab-icon" />
-
-            Frontend
-
-          </button>
-
-          {/* BACKEND */}
-
-          <button
-            className={
-              activeTab === "backend"
-              ? "active-tab"
-              : ""
-            }
-            onClick={() => setActiveTab("backend")}
-          >
-
-            <FaServer className="tab-icon" />
-
-            Backend
-
-          </button>
-
-          {/* TOOLS */}
-
-          <button
-            className={
-              activeTab === "tools"
-              ? "active-tab"
-              : ""
-            }
-            onClick={() => setActiveTab("tools")}
-          >
-
-            <FaTools className="tab-icon" />
-
-            Tools
-
-          </button>
-
+              <div className="skill-tags">
+                {group.skills.map(({ name, icon: SkillIcon }) => (
+                  <div className="skill-item" key={name}>
+                    <SkillIcon className="skill-icon" aria-hidden="true" />
+                    <span>{name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-
-        {/* FRONTEND */}
-
-        {activeTab === "frontend" && (
-
-          <div className="skills-content">
-
-            {/* HTML */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>HTML5</h3>
-                <span>80%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "80%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* CSS */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>CSS3</h3>
-                <span>60%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "60%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* JS */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>JavaScript</h3>
-                <span>67%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "67%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* React */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>React</h3>
-                <span>60%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "60%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* Tailwind */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>Tailwind CSS</h3>
-                <span>45%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "45%" }}
-                ></div>
-              </div>
-
-            </div>
-
-          </div>
-
-        )}
-
-        {/* BACKEND */}
-
-        {activeTab === "backend" && (
-
-          <div className="skills-content">
-
-            {/* NODE */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>Node.js</h3>
-                <span>70%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "80%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* EXPRESS */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>Express.js</h3>
-                <span>78%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "78%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* SQL */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>SQL</h3>
-                <span>58%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "58%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* MONGODB */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>MongoDB</h3>
-                <span>64%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "64%" }}
-                ></div>
-              </div>
-
-            </div>
-
-          </div>
-
-        )}
-
-        {/* TOOLS */}
-
-        {activeTab === "tools" && (
-
-          <div className="skills-content">
-
-            {/* GIT */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>Git</h3>
-                <span>48%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "48%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* GITHUB */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>GitHub</h3>
-                <span>60%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "60%" }}
-                ></div>
-              </div>
-
-            </div>
-
-            {/* LINUX */}
-            <div className="skill-item">
-
-              <div className="skill-info">
-                <h3>Linux</h3>
-                <span>63%</span>
-              </div>
-
-              <div className="skill-bar">
-                <div
-                  className="skill-progress"
-                  style={{ width: "63%" }}
-                ></div>
-              </div>
-
-            </div>
-
-          </div>
-
-        )}
 
         <div className="skills-cloud-section">
           <div className="skills-cloud" aria-label="Interactive technology icon globe">

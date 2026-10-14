@@ -7,11 +7,32 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Experience from "./components/Experience";
 import { Analytics } from "@vercel/analytics/react";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme) return savedTheme;
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+
+  useEffect(() => {
+    const isDark = theme === "dark";
+
+    document.documentElement.classList.toggle("dark-theme", isDark);
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <Hero />
       <About />
       <Projects />

@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #f8fbff 0%, #f3f8fc 100%);
+  background: linear-gradient(180deg, var(--bg-section-a) 0%, var(--bg-section-b) 100%);
   font-family: 'Inter', sans-serif;
   overflow: hidden;
 }
@@ -49,10 +49,10 @@
   max-width: 400px;
   aspect-ratio: 4/4.5;
   border-radius: 25px;
-  background: #ffffff;
+  background: var(--bg-surface);
   padding: 0.8rem;
-  box-shadow: 20px 20px 60px rgba(190, 190, 190, 0.55),
-              -20px -20px 60px rgba(255, 255, 255, 0.9);
+  box-shadow: 20px 20px 60px var(--shadow-soft),
+              -20px -20px 60px rgba(255, 255, 255, 0.12);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -81,8 +81,8 @@
   z-index: 2;
   border-radius: 20px;
   overflow: hidden;
-  outline: 2px solid #ffffff;
-  background: rgba(255, 255, 255, 0.82);
+  outline: 2px solid var(--bg-surface);
+  background: color-mix(in srgb, var(--bg-surface) 82%, transparent);
   backdrop-filter: blur(24px);
 }
 
@@ -127,7 +127,7 @@
 }
 
 .image-placeholder {
-  background: #eaf4fd;
+  background: var(--bg-surface-soft);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +153,7 @@
 
 .about-title {
   font-family: 'Outfit', sans-serif;
-  color: #0f172a;
+  color: var(--text-main);
   font-size: clamp(2rem, 4.2vw, 3.2rem);
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -161,7 +161,7 @@
 }
 
 .about-description {
-  color: #475569;
+  color: var(--text-muted);
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   line-height: 1.8;
   margin-bottom: 2.5rem;
@@ -176,7 +176,7 @@
 }
 
 .info-item {
-  background: white;
+  background: var(--card-bg);
   padding: 1rem 1.2rem;
   border-radius: 12px;
   border: 1px solid rgba(56, 189, 248, 0.1);
@@ -204,7 +204,7 @@
 }
 
 .info-value {
-  color: #0f172a;
+  color: var(--text-main);
   font-weight: 600;
   font-size: 1rem;
   word-break: break-word;

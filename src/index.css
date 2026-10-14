@@ -3,11 +3,43 @@
 :root {
   --bg-main: #f3f8fc;
   --bg-surface: #ffffff;
+  --bg-surface-soft: #f8fafc;
+  --bg-section-a: #f8fbff;
+  --bg-section-b: #f3f8fc;
+  --bg-section-c: #eef5fc;
   --text-main: #0f172a;
   --text-muted: #475569;
   --primary: #0284c7;
+  --primary-bright: #38bdf8;
   --primary-strong: #0369a1;
   --line-soft: #dbe7f3;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(148, 163, 184, 0.25);
+  --nav-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+  --nav-border: rgba(255, 255, 255, 0.72);
+  --shadow-soft: rgba(15, 23, 42, 0.12);
+  --input-bg: rgba(248, 250, 252, 0.95);
+}
+
+:root.dark-theme {
+  --bg-main: #08111f;
+  --bg-surface: #111c2e;
+  --bg-surface-soft: #0d1728;
+  --bg-section-a: #0a1322;
+  --bg-section-b: #08111f;
+  --bg-section-c: #0e1a2d;
+  --text-main: #e5eefb;
+  --text-muted: #a8b6ca;
+  --primary: #38bdf8;
+  --primary-bright: #67e8f9;
+  --primary-strong: #0ea5e9;
+  --line-soft: rgba(148, 163, 184, 0.24);
+  --card-bg: rgba(15, 23, 42, 0.78);
+  --card-border: rgba(125, 211, 252, 0.18);
+  --nav-bg: linear-gradient(135deg, rgba(15, 23, 42, 0.84), rgba(8, 17, 31, 0.64));
+  --nav-border: rgba(125, 211, 252, 0.18);
+  --shadow-soft: rgba(0, 0, 0, 0.38);
+  --input-bg: rgba(15, 23, 42, 0.72);
 }
 
 * {
@@ -25,6 +57,7 @@ body {
   background-color: var(--bg-main);
   color: var(--text-main);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 section[id] {

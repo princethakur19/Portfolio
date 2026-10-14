@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { useLayoutEffect, useState } from "react";
-import { FaDownload } from "react-icons/fa";
+import { FaDownload, FaMoon, FaSun } from "react-icons/fa";
 import { scrollToSection } from "../utils/smoothScroll";
 
 const navItems = [
@@ -13,7 +13,7 @@ const navItems = [
   { id: "contact", label: "Contact" },
 ];
 
-function Navbar() {
+function Navbar({ theme, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -120,6 +120,16 @@ function Navbar() {
             </li>
           ))}
         </ul>
+
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        >
+          {theme === "dark" ? <FaSun /> : <FaMoon />}
+        </button>
 
         {/* RESUME BUTTON */}
 

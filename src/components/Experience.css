@@ -3,14 +3,14 @@
   min-height: 100vh;
   background:
     radial-gradient(circle at top left, rgba(14, 165, 233, 0.18), transparent 34rem),
-    linear-gradient(180deg, #f3f8fc 0%, #eaf3fb 48%, #f3f8fc 100%);
+    linear-gradient(180deg, var(--bg-section-b) 0%, var(--bg-section-c) 48%, var(--bg-section-b) 100%);
   overflow: hidden;
 }
 
 .timeline3d {
   width: 100%;
   padding: 7.5rem 8% 5rem;
-  color: #0f172a;
+  color: var(--text-main);
 }
 
 .timeline3d-shell {
@@ -36,7 +36,7 @@
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
   letter-spacing: 0;
-  color: #0f172a;
+  color: var(--text-main);
 }
 
 .timeline3d-track {
@@ -106,7 +106,7 @@
   place-items: center;
   border-radius: 999px;
   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  border: 5px solid #f3f8fc;
+  border: 5px solid var(--bg-section-b);
   color: #ffffff;
   font-size: 1.1rem;
 }
@@ -116,9 +116,9 @@
   position: relative;
   overflow: hidden;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.28);
-  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.1);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 24px 70px var(--shadow-soft);
   backdrop-filter: blur(18px);
   transition:
     box-shadow 0.35s ease,
@@ -136,7 +136,7 @@
   height: 190px;
   position: relative;
   overflow: hidden;
-  background: #dbe7f3;
+  background: var(--line-soft);
 }
 
 .timeline3d-image img {
@@ -204,14 +204,14 @@
 }
 
 .timeline3d-content h3 {
-  color: #0f172a;
+  color: var(--text-main);
   font-size: 1.45rem;
   line-height: 1.25;
   margin-bottom: 0.4rem;
 }
 
 .timeline3d-company {
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 0.2rem;
@@ -235,7 +235,7 @@
 }
 
 .timeline3d-description p {
-  color: #475569;
+  color: var(--text-muted);
   font-size: 0.98rem;
   line-height: 1.75;
   padding-top: 1rem;

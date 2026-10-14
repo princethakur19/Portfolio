@@ -101,16 +101,6 @@ function Navbar({ theme, onToggleTheme }) {
   return (
     <header className="header">
       <nav className={`navbar${menuOpen ? " menu-is-open" : ""}`} ref={menuRef}>
-        {/* LOGO */}
-
-        <a
-          href="#home"
-          className="logo"
-          onClick={(event) => handleNavClick(event, "home")}
-        >
-          <img src={logo} alt="Logo" />
-        </a>
-
         {/* MOBILE MENU BUTTON */}
 
         <button
@@ -122,6 +112,14 @@ function Navbar({ theme, onToggleTheme }) {
         >
           {menuOpen ? <FaTimes aria-hidden="true" /> : <span className="menu-icon"><i></i><i></i><i></i></span>}
         </button>
+
+        <a
+          href="#home"
+          className="logo"
+          onClick={(event) => handleNavClick(event, "home")}
+        >
+          <img src={logo} alt="Logo" />
+        </a>
 
         {/* NAV LINKS */}
 

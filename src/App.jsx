@@ -11,10 +11,6 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("portfolio-theme");
-
-    if (savedTheme) return savedTheme;
-
     return "light";
   });
 

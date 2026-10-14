@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import logo from "../assets/logo.png";
-import { useLayoutEffect, useState } from "react";
-import { FaDownload, FaMoon, FaSun } from "react-icons/fa";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { FaDownload, FaMoon, FaSun, FaTimes } from "react-icons/fa";
 import { scrollToSection } from "../utils/smoothScroll";
 
 const navItems = [
@@ -16,8 +16,27 @@ const navItems = [
 function Navbar({ theme, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const menuRef = useRef(null);
 
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    const handlePointerDown = (event) => {
+      if (!menuRef.current?.contains(event.target)) closeMenu();
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") closeMenu();
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen]);
 
   useLayoutEffect(() => {
     const updateActiveSection = () => {
@@ -81,7 +100,7 @@ function Navbar({ theme, onToggleTheme }) {
 
   return (
     <header className="header">
-      <nav className="navbar">
+      <nav className={`navbar${menuOpen ? " menu-is-open" : ""}`} ref={menuRef}>
         {/* LOGO */}
 
         <a
@@ -97,16 +116,16 @@ function Navbar({ theme, onToggleTheme }) {
         <button
           className={`menu-toggle ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          {menuOpen ? <FaTimes aria-hidden="true" /> : <span className="menu-icon"><i></i><i></i><i></i></span>}
         </button>
 
         {/* NAV LINKS */}
 
-        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <ul id="primary-navigation" className={`nav-links ${menuOpen ? "open" : ""}`}>
           {navItems.map((item) => (
             <li key={item.id}>
               <a
@@ -120,6 +139,15 @@ function Navbar({ theme, onToggleTheme }) {
             </li>
           ))}
         </ul>
+
+        <a
+          href="/resume.pdf"
+          download="Prince_Thakur_Resume.pdf"
+          className="mobile-resume-btn"
+          onClick={closeMenu}
+        >
+          <FaDownload /> Download Resume
+        </a>
 
         <button
           type="button"

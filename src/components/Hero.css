@@ -28,6 +28,33 @@
   pointer-events: none; /* Allows clicks to pass through to buttons */
 }
 
+.dark-theme .hero-bg-shapes::before,
+.dark-theme .hero-bg-shapes::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+}
+
+.dark-theme .hero-bg-shapes::before {
+  opacity: 0.55;
+  background: radial-gradient(ellipse at 25% 30%, rgba(56, 189, 248, 0.2), transparent 32%), radial-gradient(ellipse at 75% 65%, rgba(129, 140, 248, 0.19), transparent 35%);
+  animation: darkAurora 18s ease-in-out infinite alternate;
+}
+
+.dark-theme .hero-bg-shapes::after {
+  inset: 0;
+  opacity: 0.24;
+  background-image: radial-gradient(rgba(186, 230, 253, 0.75) 1px, transparent 1.4px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+@keyframes darkAurora {
+  from { transform: translate3d(-2%, -1%, 0) rotate(-3deg) scale(1); }
+  to { transform: translate3d(3%, 2%, 0) rotate(3deg) scale(1.08); }
+}
+
 .shape {
   position: absolute;
   border-radius: 50%;
@@ -87,6 +114,10 @@
     rgba(255, 255, 255, 0.4),
     transparent 40%
   );
+}
+
+.dark-theme .hero-interactive-bg {
+  background: radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.17), transparent 55%), linear-gradient(135deg, rgba(8, 17, 31, 0.08), rgba(14, 26, 45, 0.22));
 }
 
 .hero-interactive-bg::before {
@@ -283,6 +314,10 @@
       linear-gradient(180deg, rgba(248, 250, 252, 0.08), rgba(248, 250, 252, 0.42));
   }
 
+  .dark-theme .hero-interactive-bg {
+    background: radial-gradient(320px circle at var(--mouse-x, 50%) var(--mouse-y, 38%), rgba(56, 189, 248, 0.2), transparent 62%), linear-gradient(180deg, rgba(8, 17, 31, 0.05), rgba(8, 17, 31, 0.28));
+  }
+
   .hero-interactive-bg::before {
     opacity: 0.72;
     background: radial-gradient(
@@ -359,6 +394,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .shape,
+  .dark-theme .hero-bg-shapes::before,
   .hero-interactive-bg,
   .hero-container {
     animation: none;

@@ -42,11 +42,22 @@ function Hero() {
     setMousePos({ x, y });
   };
 
+  const handleTouchMove = (event) => {
+    const touch = event.touches[0];
+    if (!touch) return;
+    const { left, top, width, height } = event.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: Math.max(0, Math.min(100, ((touch.clientX - left) / width) * 100)),
+      y: Math.max(0, Math.min(100, ((touch.clientY - top) / height) * 100)),
+    });
+  };
+
   return (
     <section 
       className="hero" 
       id="home"
       onPointerMove={handlePointerMove}
+      onTouchMove={handleTouchMove}
       style={{
         '--mouse-x': `${mousePos.x}%`,
         '--mouse-y': `${mousePos.y}%`

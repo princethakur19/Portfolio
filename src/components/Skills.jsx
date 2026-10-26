@@ -102,7 +102,7 @@ function Skills() {
                 {group.skills.map(({ name, icon: SkillIcon, color }) => (
                   <div className="skill-item" key={name}>
                     <SkillIcon
-                      className="skill-icon"
+                      className={`skill-icon${name === "Express.js" || name === "GitHub" ? " skill-icon-theme-aware" : ""}`}
                       style={{ color }}
                       aria-hidden="true"
                     />

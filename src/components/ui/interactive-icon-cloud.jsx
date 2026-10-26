@@ -32,11 +32,18 @@ const cloudProps = {
   },
 };
 
+const lightGlobeIconSlugs = new Set(["express", "github", "mysql", "tailwindcss"]);
+
 function renderCustomIcon(icon) {
+  const visibleIcon = lightGlobeIconSlugs.has(icon.slug)
+    ? { ...icon, hex: "7dd3fc" }
+    : icon;
+
   return renderSimpleIcon({
-    icon,
-    bgHex: "#f8fafc",
-    fallbackHex: "#0ea5e9",
+    icon: visibleIcon,
+    // The globe sits on a dark card, so test contrast against that surface.
+    bgHex: "#111c2e",
+    fallbackHex: "#7dd3fc",
     minContrastRatio: 1.4,
     size: 46,
     aProps: {

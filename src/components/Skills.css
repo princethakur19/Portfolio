@@ -91,6 +91,14 @@
   font-size: 1.25rem;
 }
 
+.skill-icon-theme-aware {
+  color: #111827;
+}
+
+:root.dark-theme .skill-icon-theme-aware {
+  color: #e5eefb !important;
+}
+
 .skill-item span {
   white-space: nowrap;
 }

@@ -4,6 +4,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FaDownload, FaMoon, FaSun, FaTimes } from "react-icons/fa";
 import { scrollToSection } from "../utils/smoothScroll";
 
+const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
+
 const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
@@ -139,7 +141,7 @@ function Navbar({ theme, onToggleTheme }) {
         </ul>
 
         <a
-          href="/resume.pdf"
+          href={resumeUrl}
           download="Prince_Thakur_Resume.pdf"
           className="mobile-resume-btn"
           onClick={closeMenu}
@@ -160,7 +162,7 @@ function Navbar({ theme, onToggleTheme }) {
         {/* RESUME BUTTON */}
 
         <a
-          href="/resume.pdf"
+          href={resumeUrl}
           download="Prince_Thakur_Resume.pdf"
           className="resume-btn"
         >

@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 // Uncomment the line below and ensure the path to your image is correct!
 import profilePic from "../assets/profile.jpeg";
 
+const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
+
 function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -82,7 +84,7 @@ function About() {
 
           {/* BUTTON */}
           <a
-            href="/Prince_Thakur_Resume.pdf"
+            href={resumeUrl}
             download="Prince_Thakur_Resume.pdf"
             className="download-btn"
           >

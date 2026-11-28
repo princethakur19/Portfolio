@@ -10,6 +10,10 @@
   align-items: center;
   justify-content: center;
   background-color: var(--bg-surface-soft);
+  background-image:
+    radial-gradient(ellipse at 18% 28%, rgba(56, 189, 248, 0.22), transparent 38%),
+    radial-gradient(ellipse at 76% 72%, rgba(129, 140, 248, 0.18), transparent 36%),
+    radial-gradient(ellipse at 55% 72%, rgba(52, 211, 153, 0.14), transparent 34%);
   overflow: hidden;
   /* THE FIX: Added 140px padding to the top to clear the fixed navbar */
   padding: 140px 2rem 4rem; 
@@ -109,11 +113,16 @@
   opacity: 0.8;
   transition: background 0.15s ease;
   overflow: hidden;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-    rgba(255, 255, 255, 0.4),
-    transparent 40%
-  );
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(14, 165, 233, 0.1), transparent 55%);
+}
+
+.hero-particle-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .dark-theme .hero-interactive-bg {
@@ -141,7 +150,7 @@
 /* --- TYPOGRAPHY & LAYOUT --- */
 .hero-container {
   position: relative;
-  z-index: 2; /* Increased z-index to sit above shapes */
+  z-index: 2; /* Keeps the original hero content above the background. */
   max-width: 850px;
   width: min(100%, 850px);
   text-align: center;
@@ -187,20 +196,36 @@
 .highlight-text {
   display: inline;
   overflow-wrap: anywhere;
-  color: #0ea5e9;
-  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+  color: #0369a1;
+  background: linear-gradient(90deg, #38bdf8, #2563eb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+.highlight-text::before {
+  content: none;
+}
+
+.dark-theme .highlight-text {
+  color: #38bdf8;
+  background: linear-gradient(90deg, #38bdf8, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .typed-cursor {
   display: inline-block;
-  margin-left: 0.08em;
-  color: #0ea5e9;
+  margin-left: 0.04em;
+  color: #0284c7;
   font-weight: 400;
-  line-height: inherit;
-  vertical-align: baseline;
+  line-height: 1;
+  vertical-align: -0.04em;
+  -webkit-text-fill-color: currentColor;
+}
+
+.dark-theme .typed-cursor {
+  color: #38bdf8;
 }
 
 .hero-bio {
@@ -305,29 +330,11 @@
 
   .hero-interactive-bg {
     opacity: 1;
-    background:
-      radial-gradient(
-        320px circle at var(--mouse-x, 50%) var(--mouse-y, 38%),
-        rgba(255, 255, 255, 0.56),
-        transparent 58%
-      ),
-      linear-gradient(180deg, rgba(248, 250, 252, 0.08), rgba(248, 250, 252, 0.42));
+    background: radial-gradient(320px circle at var(--mouse-x, 50%) var(--mouse-y, 38%), rgba(14, 165, 233, 0.12), transparent 62%);
   }
 
   .dark-theme .hero-interactive-bg {
     background: radial-gradient(320px circle at var(--mouse-x, 50%) var(--mouse-y, 38%), rgba(56, 189, 248, 0.2), transparent 62%), linear-gradient(180deg, rgba(8, 17, 31, 0.05), rgba(8, 17, 31, 0.28));
-  }
-
-  .hero-interactive-bg::before {
-    opacity: 0.72;
-    background: radial-gradient(
-      280px circle,
-      rgba(14, 165, 233, 0.2),
-      rgba(52, 211, 153, 0.12) 42%,
-      transparent 70%
-    );
-    transform: translate(-18%, -10%);
-    animation: mobileSpotlight 8s ease-in-out infinite alternate;
   }
 
   .hero-interactive-bg::after {

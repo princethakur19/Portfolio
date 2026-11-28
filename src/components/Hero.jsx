@@ -19,7 +19,14 @@ function ParticleField() {
     let frame = 0;
     let previous = 0;
     let visible = true;
+    let particleColor = "#0369a1";
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const readParticleColor = () => {
+      particleColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--primary-strong")
+        .trim() || "#0369a1";
+    };
 
     const resize = () => {
       const bounds = canvas.getBoundingClientRect();
@@ -33,12 +40,12 @@ function ParticleField() {
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       if (!dots.length) {
-        for (let i = 0; i < 125; i += 1) {
+        for (let i = 0; i < 150; i += 1) {
           const angle = Math.random() * Math.PI * 2;
-          const speed = 5 + Math.random() * 9;
+          const speed = 8 + Math.random() * 10;
           dots.push({ x: Math.random() * width, y: Math.random() * height,
             vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
-            radius: 0.7 + Math.random() * 1.3, alpha: 0.25 + Math.random() * 0.5, ox: 0, oy: 0 });
+            radius: 0.9 + Math.random() * 1.3, alpha: 0.4 + Math.random() * 0.45, ox: 0, oy: 0 });
         }
       } else if (oldWidth && oldHeight) {
         dots.forEach((dot) => { dot.x = (dot.x / oldWidth) * width; dot.y = (dot.y / oldHeight) * height; });
@@ -69,7 +76,7 @@ function ParticleField() {
           dot.oy += (targetY - dot.oy) * ease;
         }
         context.globalAlpha = dot.alpha * (0.78 + Math.sin(time * 0.0012 + dot.x) * 0.22);
-        context.fillStyle = "#bae6fd";
+        context.fillStyle = particleColor;
         context.beginPath();
         context.arc(dot.x + dot.ox, dot.y + dot.oy, dot.radius, 0, Math.PI * 2);
         context.fill();
@@ -97,7 +104,13 @@ function ParticleField() {
     const onLeave = () => { pointer.active = false; };
     const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); });
     const resizeObserver = new ResizeObserver(resize);
+    readParticleColor();
     resize();
+    const themeObserver = new MutationObserver(() => {
+      readParticleColor();
+      if (!frame || reducedMotion) draw(0, 0);
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     observer.observe(canvas);
     resizeObserver.observe(canvas);
     window.addEventListener("pointermove", onPointer, { passive: true });
@@ -109,6 +122,7 @@ function ParticleField() {
       cancelAnimationFrame(frame);
       observer.disconnect();
       resizeObserver.disconnect();
+      themeObserver.disconnect();
       window.removeEventListener("pointermove", onPointer);
       document.documentElement.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", sync);
